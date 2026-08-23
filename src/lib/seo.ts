@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
+import { socialMetadata } from "@/lib/metadata";
 
 export function absoluteUrl(path = "/"): string {
   return new URL(path, site.url).toString();
@@ -24,15 +25,13 @@ export function buildMetadata({
     keywords: keywords ? [...keywords] : undefined,
     alternates: { canonical: url },
     openGraph: {
-      type: "website",
+      ...socialMetadata.openGraph,
       url,
-      siteName: site.name,
       title,
       description,
-      locale: site.locale,
     },
     twitter: {
-      card: "summary_large_image",
+      ...socialMetadata.twitter,
       title,
       description,
     },
@@ -50,6 +49,8 @@ export function organizationSchema(): Json {
     url: site.url,
     description: site.description,
     slogan: site.tagline,
+    logo: absoluteUrl("/apple-icon"),
+    image: absoluteUrl("/opengraph-image"),
     email: site.contact.email,
     telephone: site.contact.phone,
     sameAs: [site.contact.linkedin],

@@ -30,7 +30,7 @@ import { site } from "@/content/site";
 const HOMEPAGE_FAQ_COUNT = 6;
 
 export const metadata: Metadata = {
-  description: site.description,
+  description: site.shareDescription,
   keywords: [
     "medical coding services",
     "revenue cycle management",

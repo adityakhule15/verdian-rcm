@@ -5,6 +5,7 @@
  * details before launch — see PLACEHOLDERS.md. Nothing here should be hardcoded
  * anywhere else in the codebase.
  */
+import { getSiteUrl } from "@/lib/siteUrl";
 
 export const site = {
   name: "Veridian Health RCM",
@@ -15,7 +16,11 @@ export const site = {
     "Empowering healthcare organizations with accurate medical coding, efficient revenue cycle management and quality-driven healthcare solutions.",
   description:
     "Professional medical coding, medical billing and revenue cycle management services for healthcare organizations. Improve coding accuracy, reduce denials and optimize revenue cycle performance.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  /** Shorter copy tuned for link previews (WhatsApp, iMessage, LinkedIn). */
+  shareTitle: "Veridian Health RCM — Medical Coding & Revenue Cycle Management",
+  shareDescription:
+    "Accurate medical coding, billing and end-to-end RCM for hospitals, clinics and physician groups. Reduce denials, improve clean-claim rates and accelerate reimbursement.",
+  url: getSiteUrl(),
   locale: "en_US",
   foundedYear: 2026,
 

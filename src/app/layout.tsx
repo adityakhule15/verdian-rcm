@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/seo";
-import { site } from "@/content/site";
+import { rootMetadata } from "@/lib/metadata";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,26 +19,7 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: `Healthcare RCM & Medical Coding Services | ${site.name}`,
-    template: `%s | ${site.name}`,
-  },
-  description: site.description,
-  applicationName: site.name,
-  authors: [{ name: site.name }],
-  openGraph: {
-    type: "website",
-    siteName: site.name,
-    locale: site.locale,
-    url: site.url,
-  },
-  robots: { index: true, follow: true },
-  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
-    : undefined,
-};
+export const metadata: Metadata = rootMetadata();
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
