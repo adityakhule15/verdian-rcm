@@ -33,16 +33,48 @@ export function renderOgImage({
               width: 56,
               height: 56,
               borderRadius: 16,
-              background: "#2dbdab",
+              background: "#102845",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 30,
-              fontWeight: 700,
-              color: "#08172a",
+              position: "relative",
             }}
           >
-            V
+            <div
+              style={{
+                position: "absolute",
+                left: 14,
+                top: 12,
+                width: 0,
+                height: 0,
+                borderLeft: "14px solid transparent",
+                borderRight: "0px solid transparent",
+                borderBottom: "28px solid #ffffff",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: 28,
+                top: 12,
+                width: 0,
+                height: 0,
+                borderLeft: "0px solid transparent",
+                borderRight: "14px solid transparent",
+                borderBottom: "28px solid #2dbdab",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: 10,
+                left: 14,
+                width: 28,
+                height: 4,
+                borderRadius: 2,
+                background: "#99e7da",
+              }}
+            />
           </div>
           <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: "-0.01em" }}>{site.name}</div>
         </div>

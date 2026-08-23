@@ -27,10 +27,9 @@ This one file holds every brand value, so swapping in a real brand is a single-f
 | `offices[]` | Two placeholder addresses | Real street, city, state, postcode, country for each site. |
 | `foundedYear` | 2026 | Real incorporation year. |
 
-### Logo — `src/components/layout/Logo.tsx`
+### Logo — `src/components/layout/LogoMark.tsx`, `src/app/icon.svg`, `src/app/apple-icon.svg`
 
-An inline SVG wordmark is used deliberately so nothing unlicensed ships. Replace it with the real
-logo, and add `favicon.ico`, `icon.png` and `apple-icon.png` to `src/app/`.
+The Veridian split-tone V mark is implemented in code and as SVG favicons. Replace only if the real brand supplies different artwork.
 
 ### Environment variables — see `.env.example`
 
@@ -91,7 +90,7 @@ expert should still confirm accuracy before launch, because coding and payer rul
 ## 4. Pre-launch checklist
 
 - [ ] Real brand, contact details and addresses in `src/content/site.ts`
-- [ ] Real logo and favicons
+- [ ] Real logo and favicons (only if replacing the default Veridian mark)
 - [ ] `NEXT_PUBLIC_SITE_URL` set to the production domain
 - [ ] Lead delivery tested end to end (contact, per-service enquiry, careers, newsletter)
 - [ ] All four legal pages approved by counsel, banner removed, `noindex` lifted
