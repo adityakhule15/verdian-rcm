@@ -2,10 +2,19 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 
 /** Absolute URLs so crawlers (WhatsApp, iMessage) never hit SSO-protected deploy hosts. */
+const ogSquareUrl = `${site.url}/og-square`;
 const ogImageUrl = `${site.url}/opengraph-image`;
 const twitterImageUrl = `${site.url}/twitter-image`;
 const iconUrl = `${site.url}/icon`;
 const appleIconUrl = `${site.url}/apple-icon`;
+
+const ogSquareImage = {
+  url: ogSquareUrl,
+  width: 1200,
+  height: 1200,
+  alt: `${site.shortName} logo — medical coding and revenue cycle management`,
+  type: "image/png" as const,
+};
 
 const ogImage = {
   url: ogImageUrl,
@@ -23,7 +32,8 @@ export const socialMetadata = {
     locale: site.locale,
     title: site.shareTitle,
     description: site.shareDescription,
-    images: [ogImage],
+    /** Square image first — WhatsApp center-crops og:image for the chat thumbnail. */
+    images: [ogSquareImage, ogImage],
   },
   twitter: {
     card: "summary_large_image" as const,
