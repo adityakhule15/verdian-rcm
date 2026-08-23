@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
 
+/** Absolute URLs so crawlers (WhatsApp, iMessage) never hit SSO-protected deploy hosts. */
+const ogImageUrl = `${site.url}/opengraph-image`;
+const twitterImageUrl = `${site.url}/twitter-image`;
+const iconUrl = `${site.url}/icon`;
+const appleIconUrl = `${site.url}/apple-icon`;
+
 const ogImage = {
-  url: "/opengraph-image",
+  url: ogImageUrl,
   width: 1200,
   height: 630,
   alt: `${site.shortName} — medical coding, billing and revenue cycle management`,
@@ -23,15 +29,15 @@ export const socialMetadata = {
     card: "summary_large_image" as const,
     title: site.shareTitle,
     description: site.shareDescription,
-    images: ["/twitter-image"],
+    images: [twitterImageUrl],
   },
   icons: {
     icon: [
-      { url: "/icon", sizes: "32x32", type: "image/png" },
-      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+      { url: iconUrl, sizes: "32x32", type: "image/png" },
+      { url: appleIconUrl, sizes: "180x180", type: "image/png" },
     ],
-    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
-    shortcut: "/icon",
+    apple: [{ url: appleIconUrl, sizes: "180x180", type: "image/png" }],
+    shortcut: iconUrl,
   },
 };
 
