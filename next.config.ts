@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
       { source: "/terms-and-conditions", destination: "/legal/terms-and-conditions", permanent: true },
     ];
   },
+  /** Browsers request /favicon.ico before parsing HTML; without this, Vercel serves its default mark. */
+  async rewrites() {
+    return [{ source: "/favicon.ico", destination: "/icon" }];
+  },
   async headers() {
     return [
       {

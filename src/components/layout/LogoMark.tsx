@@ -1,11 +1,9 @@
 import { cn } from "@/lib/cn";
+import { LOGO_MARK, LOGO_MARK_COLORS, type LogoMarkVariant } from "@/lib/logoMarkArt";
 
 /**
  * Veridian brand mark — a split-tone “V” on a rounded square.
- *
- * The left arm reads as clarity (white on navy), the right as revenue growth
- * (teal). The baseline bar is the audit checkpoint the tagline promises.
- * Works from favicon size up to header scale.
+ * Geometry lives in `logoMarkArt.tsx` so favicons and PNG icons stay identical.
  */
 export function LogoMark({
   className,
@@ -13,25 +11,30 @@ export function LogoMark({
 }: {
   className?: string;
   /** light = navy tile (header). dark = teal tile (footer). */
-  variant?: "light" | "dark";
+  variant?: LogoMarkVariant;
 }) {
-  const tile = variant === "dark" ? "#2dbdab" : "#102845";
-  const leftArm = "#ffffff";
-  const rightArm = variant === "dark" ? "#08172a" : "#2dbdab";
-  const baseline = variant === "dark" ? "#08172a" : "#99e7da";
+  const colors = LOGO_MARK_COLORS[variant];
+  const g = LOGO_MARK;
 
   return (
     <svg
-      viewBox="0 0 32 32"
+      viewBox={`0 0 ${g.viewBox} ${g.viewBox}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("shrink-0", className)}
       aria-hidden
     >
-      <rect width="32" height="32" rx="8" fill={tile} />
-      <path d="M8 10 16 24 16 10Z" fill={leftArm} />
-      <path d="M16 10 16 24 24 10Z" fill={rightArm} />
-      <rect x="9" y="25" width="14" height="2" rx="1" fill={baseline} />
+      <rect width="32" height="32" rx={g.rx} fill={colors.tile} />
+      <path d={g.leftPath} fill={colors.leftArm} />
+      <path d={g.rightPath} fill={colors.rightArm} />
+      <rect
+        x={g.baseline.x}
+        y={g.baseline.y}
+        width={g.baseline.width}
+        height={g.baseline.height}
+        rx={g.baseline.rx}
+        fill={colors.baseline}
+      />
     </svg>
   );
 }
