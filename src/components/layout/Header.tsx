@@ -74,37 +74,30 @@ export function Header() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
           scrolled
-            ? "border-b border-navy-100/80 bg-white/95 backdrop-blur-md shadow-sm py-2"
-            : "border-b border-transparent bg-white py-3.5",
+            ? "border-b border-navy-100/90 bg-white/95 backdrop-blur-md shadow-xs py-2.5"
+            : "border-b border-navy-100/50 bg-white py-3.5",
         )}
       >
         <div className="container-page flex items-center justify-between gap-4">
           <Logo />
 
-          {/* Desktop Navigation Links with Smooth Underline Hover Effect */}
-          <nav aria-label="Main" className="hidden xl:block">
-            <ul className="flex items-center gap-0.5 2xl:gap-1.5">
+          {/* Desktop Navigation Links — Streamlined Pills */}
+          <nav aria-label="Main" className="hidden lg:block">
+            <ul className="flex items-center gap-1 xl:gap-1.5 bg-navy-50/70 p-1 rounded-full border border-navy-100/70">
               {primaryNav.map((item) => {
                 const active = isActive(item.href);
                 return (
-                  <li key={item.label} className="relative group">
+                  <li key={item.label}>
                     <Link
                       href={item.href}
                       className={cn(
-                        "relative inline-flex items-center whitespace-nowrap px-2.5 2xl:px-3 py-2 text-[0.8125rem] 2xl:text-[0.875rem] font-semibold transition-colors duration-200",
+                        "inline-flex items-center whitespace-nowrap rounded-full px-3.5 py-1.5 text-[0.84rem] xl:text-[0.875rem] font-semibold transition-all duration-200",
                         active
-                          ? "text-teal-700"
-                          : "text-navy-700 hover:text-navy-950",
+                          ? "bg-white text-teal-800 shadow-xs font-bold"
+                          : "text-navy-700 hover:text-navy-950 hover:bg-white/60",
                       )}
                     >
                       {item.label}
-                      {/* Animated bottom bar indicator */}
-                      <span
-                        className={cn(
-                          "absolute bottom-0 left-2.5 right-2.5 2xl:left-3 2xl:right-3 h-0.5 rounded-full bg-teal-600 transition-all duration-300 origin-center",
-                          active ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100",
-                        )}
-                      />
                     </Link>
                   </li>
                 );
@@ -117,10 +110,10 @@ export function Header() {
             <div className="hidden sm:block">
               <ButtonLink
                 href="/contact"
-                className="relative overflow-hidden group shadow-md hover:shadow-teal-500/20"
+                className="relative overflow-hidden group shadow-md hover:shadow-teal-500/20 rounded-full px-5 py-2 text-sm font-bold"
                 withArrow
               >
-                <span className="relative z-10 flex items-center gap-1.5 font-bold">
+                <span className="relative z-10 flex items-center gap-1.5">
                   <Sparkles className="size-3.5 text-teal-300" aria-hidden />
                   Get Started
                 </span>
@@ -131,9 +124,9 @@ export function Header() {
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
               aria-expanded={mobileOpen}
-              className="inline-flex size-10.5 items-center justify-center rounded-xl border border-navy-200 text-navy-800 xl:hidden hover:bg-navy-50 transition"
+              className="inline-flex size-10 items-center justify-center rounded-xl border border-navy-200 text-navy-800 lg:hidden hover:bg-navy-50 transition"
             >
-              <Menu className="size-5.5" aria-hidden />
+              <Menu className="size-5" aria-hidden />
             </button>
           </div>
         </div>
@@ -157,7 +150,7 @@ function MobileNav({ onClose }: { onClose: () => void }) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-100 xl:hidden">
+    <div className="fixed inset-0 z-100 lg:hidden">
       <div className="absolute inset-0 bg-navy-950/70 backdrop-blur-sm" onClick={onClose} aria-hidden />
       <div
         role="dialog"

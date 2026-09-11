@@ -2,13 +2,13 @@ export type NavLink = { label: string; href: string; description?: string };
 
 export const primaryNav: ReadonlyArray<NavLink> = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Healthcare Solutions", href: "/healthcare-solutions" },
-  { label: "Training Programs", href: "/training" },
+  { label: "About", href: "/about" },
+  { label: "Solutions", href: "/healthcare-solutions" },
+  { label: "Training", href: "/training" },
   { label: "Internships", href: "/internships" },
   { label: "Certifications", href: "/certifications" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNav = {
