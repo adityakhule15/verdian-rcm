@@ -83,7 +83,7 @@ export function Header() {
 
           {/* Desktop Navigation Links with Smooth Underline Hover Effect */}
           <nav aria-label="Main" className="hidden xl:block">
-            <ul className="flex items-center gap-1">
+            <ul className="flex items-center gap-0.5 2xl:gap-1.5">
               {primaryNav.map((item) => {
                 const active = isActive(item.href);
                 return (
@@ -91,7 +91,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "relative inline-flex items-center px-3.5 py-2 text-[0.875rem] font-semibold transition-colors duration-200",
+                        "relative inline-flex items-center whitespace-nowrap px-2.5 2xl:px-3 py-2 text-[0.8125rem] 2xl:text-[0.875rem] font-semibold transition-colors duration-200",
                         active
                           ? "text-teal-700"
                           : "text-navy-700 hover:text-navy-950",
@@ -101,7 +101,7 @@ export function Header() {
                       {/* Animated bottom bar indicator */}
                       <span
                         className={cn(
-                          "absolute bottom-0 left-3.5 right-3.5 h-0.5 rounded-full bg-teal-600 transition-all duration-300 origin-center",
+                          "absolute bottom-0 left-2.5 right-2.5 2xl:left-3 2xl:right-3 h-0.5 rounded-full bg-teal-600 transition-all duration-300 origin-center",
                           active ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100",
                         )}
                       />
