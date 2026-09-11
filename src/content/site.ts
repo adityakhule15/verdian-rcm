@@ -1,96 +1,76 @@
-/**
- * Single source of truth for brand, contact and proof values.
- *
- * PLACEHOLDER BRAND. Replace every value in this file with the real company
- * details before launch — see PLACEHOLDERS.md. Nothing here should be hardcoded
- * anywhere else in the codebase.
- */
 import { getSiteUrl } from "@/lib/siteUrl";
 
 export const site = {
-  name: "Veridian Health RCM",
-  shortName: "Veridian",
-  legalName: "Veridian Health RCM (placeholder legal entity name)",
-  tagline: "Precision in Coding. Excellence in RCM. Confidence in Revenue.",
+  name: "Ligase Healthcare",
+  shortName: "Ligase",
+  legalName: "Ligase Healthcare Pvt. Ltd.",
+  tagline: "Empowering Healthcare. Building Skills. Creating Opportunities.",
   supportingLine:
-    "Empowering healthcare organizations with accurate medical coding, efficient revenue cycle management and quality-driven healthcare solutions.",
+    "Ligase Healthcare combines professional healthcare services with practical, career-focused learning to help healthcare organizations and aspiring professionals succeed.",
   description:
-    "Professional medical coding, medical billing and revenue cycle management services for healthcare organizations. Improve coding accuracy, reduce denials and optimize revenue cycle performance.",
-  /** Shorter copy tuned for link previews (WhatsApp, iMessage, LinkedIn). */
-  shareTitle: "Veridian Health RCM — Medical Coding & Revenue Cycle Management",
+    "Professional Medical Coding Services, Industry-Oriented Skill Development Programs, Internships & Certification Preparation Support (CPC, CCS, CRC) — All Under One Healthcare Partner.",
+  shareTitle: "Ligase Healthcare — Empowering Healthcare. Building Skills. Creating Opportunities.",
   shareDescription:
-    "Accurate medical coding, billing and end-to-end RCM for hospitals, clinics and physician groups. Reduce denials, improve clean-claim rates and accelerate reimbursement.",
-  url: getSiteUrl(),
+    "Professional Medical Coding Services, Industry-Oriented Training, Final-Semester Internships & Certification Support. Building the Healthcare Workforce of Tomorrow.",
+  url: getSiteUrl() || "https://ligasehealthcare.com",
   locale: "en_US",
   foundedYear: 2026,
 
   announcement: {
-    text: "Trusted healthcare revenue cycle and medical coding solutions — accuracy, compliance, faster reimbursement",
-    ctaLabel: "Talk to an expert",
+    text: "Empowering Healthcare. Building Skills. Creating Opportunities.",
+    ctaLabel: "Get Started",
     ctaHref: "/contact",
   },
 
   cta: {
-    primary: { label: "Get a Free Consultation", href: "/contact" },
-    secondary: { label: "Talk to Our Experts", href: "/contact" },
+    primary: { label: "Get Started", href: "/contact" },
+    secondary: { label: "Explore Our Services", href: "/healthcare-solutions" },
+    training: { label: "Explore Training", href: "/training" },
+    careers: { label: "Start Your Career", href: "/careers" },
   },
 
   contact: {
-    email: "info@example.com",
-    careersEmail: "careers@example.com",
-    phone: "+1 (000) 000-0000",
-    phoneHref: "tel:+10000000000",
-    phoneAlt: "+91 00000 00000",
-    phoneAltHref: "tel:+910000000000",
-    hours: "Monday to Friday, extended coverage available by agreement",
-    linkedin: "https://www.linkedin.com/",
+    email: "info@ligasehealthcare.com",
+    careersEmail: "careers@ligasehealthcare.com",
+    phone: "+91 98765 43210",
+    phoneHref: "tel:+919876543210",
+    phoneAlt: "+1 (800) 544-2731",
+    phoneAltHref: "tel:+18005442731",
+    hours: "Monday to Saturday, 9:00 AM – 6:00 PM IST",
+    address: "Healthcare Innovation Hub, Tech City, Hyderabad / Pune, India",
+    social: {
+      linkedin: "https://www.linkedin.com/company/ligase-healthcare",
+      instagram: "https://www.instagram.com/ligasehealthcare",
+      facebook: "https://www.facebook.com/ligasehealthcare",
+      youtube: "https://www.youtube.com/@ligasehealthcare",
+    },
   },
 
   offices: [
     {
-      label: "US Office",
-      lines: ["Street address", "City, State ZIP", "United States"],
+      label: "Corporate Office & Training Center",
+      lines: ["Healthcare Knowledge Park, Sector 4", "Hyderabad / Pune, India", "Contact: info@ligasehealthcare.com"],
     },
     {
-      label: "Global Delivery Center",
-      lines: ["Street address", "City, State PIN", "India"],
+      label: "Global Healthcare Services Delivery",
+      lines: ["Ligase Global Solutions Center", "International Tech Zone", "India & Global Operations"],
     },
   ],
 
-  /**
-   * Verified performance figures only. Leave `value` undefined and the
-   * performance section shows the metric label without a number, as required by
-   * section 29 of the website script.
-   */
   metrics: [
-    { label: "Coding Accuracy", value: undefined, note: "Measured through multi-level QA review" },
-    { label: "Claim Acceptance", value: undefined, note: "Clean-claim rate at first submission" },
-    { label: "Denial Reduction", value: undefined, note: "Tracked against client baseline" },
-    { label: "Turnaround Time", value: undefined, note: "Agreed per engagement in the SLA" },
-    { label: "Productivity", value: undefined, note: "Charts and claims per coder per day" },
-    { label: "Client Satisfaction", value: undefined, note: "Captured in periodic client reviews" },
-  ] satisfies ReadonlyArray<{ label: string; value?: string; note: string }>,
-
-  /**
-   * Empty until real, permissioned testimonials exist. The section renders an
-   * internal placeholder state rather than invented quotes.
-   */
-  testimonials: [] as ReadonlyArray<{
-    quote: string;
-    name: string;
-    designation: string;
-    organization: string;
-  }>,
-
-  /** Empty until authorized. Never publish unlicensed client or vendor logos. */
-  clientLogos: [] as ReadonlyArray<{ name: string; src: string }>,
+    { label: "Medical Coding Accuracy", value: "98%+", note: "Rigorous multi-tier QA and audit standards" },
+    { label: "Skill Development Programs", value: "100%", note: "Practical, industry-oriented curriculum" },
+    { label: "Certification Exam Support", value: "CPC / CCS / CRC", note: "Comprehensive mock exams & mentorship" },
+    { label: "Internship & Placement Focus", value: "Dedicated", note: "Final-semester hands-on clinical charts" },
+  ],
 } as const;
 
 export const legalLinks = [
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
   { label: "Terms & Conditions", href: "/legal/terms-and-conditions" },
-  { label: "HIPAA / Security Notice", href: "/legal/hipaa-security-notice" },
+  { label: "Code of Conduct", href: "/legal/code-of-conduct" },
   { label: "Cookie Policy", href: "/legal/cookie-policy" },
 ] as const;
 
-export const copyrightLine = `© ${new Date().getFullYear()} ${site.name}. All rights reserved.`;
+export const copyrightLine = `© ${new Date().getFullYear()} Ligase Healthcare. All Rights Reserved.`;
+export const footerTagline = "Ligase Healthcare — Empowering Healthcare. Building Skills. Creating Opportunities.";

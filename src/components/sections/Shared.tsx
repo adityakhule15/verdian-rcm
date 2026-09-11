@@ -1,211 +1,64 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  ChevronRight,
+  GraduationCap,
+  Sparkles,
+  Stethoscope,
+  Target,
+  Trophy,
+  Zap,
+} from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { Card, IconCard, LinkCard } from "@/components/ui/Card";
-import { AwaitingContent, CheckList, WorkflowStrip } from "@/components/ui/Bits";
+import { Card, IconCard } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
 import { ButtonLink } from "@/components/ui/Button";
-import { Accordion } from "@/components/ui/Accordion";
 import { site } from "@/content/site";
-import { faqs } from "@/content/faqs";
-import { specialties } from "@/content/specialties";
-import { deliveryProcess, revenueCycleStages } from "@/content/process";
-import { caseStudies } from "@/content/caseStudies";
 import {
-  clientTypes,
-  complianceNotice,
-  coreValues,
-  qualityPractices,
-  technologyCategories,
-  technologyNotice,
+  mission,
+  successCategories,
+  technologySectionData,
   trustPoints,
+  vision,
+  whoWeAre,
   whyChooseUs,
+  whyLigaseEcosystem,
 } from "@/content/company";
-import { serviceGroups, servicesInGroup } from "@/content/services";
+import { healthcareSolutions, medicalCodingServiceAreas } from "@/content/services";
+import { learningJourneySteps, trainingPrograms } from "@/content/training";
+import { certificationJourneySteps, certificationsList } from "@/content/certifications";
+import { internshipBenefits, internshipDetails } from "@/content/internships";
 
-/** Section 5 — trust strip. */
+/** Section 3 — Trust / Introduction Strip */
 export function TrustStrip() {
   return (
     <Section tone="tint" className="py-14 lg:py-16" labelledBy="trust-heading">
       <SectionHeading
         id="trust-heading"
-        eyebrow="Why healthcare organizations choose us"
-        title="Built for accuracy, compliance and accountability"
+        eyebrow="Healthcare Expertise · Practical Skills · Career Growth"
+        title="Healthcare Expertise. Practical Skills. Career Growth."
+        description="Ligase Healthcare combines healthcare services with practical, career-focused learning to help organizations and aspiring healthcare professionals move forward with confidence."
         align="center"
       />
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {trustPoints.map((point, index) => (
-          <Reveal key={point.title} delay={index * 60} className="h-full">
-            <IconCard icon={point.icon} title={point.title} body={point.body} />
-          </Reveal>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-/** Sections 8 and 9 — service overview by group. */
-export function ServicesOverview({
-  heading = {
-    eyebrow: "Our services",
-    title: "Comprehensive healthcare RCM solutions",
-    description:
-      "From medical coding to final payment, our integrated services help healthcare organizations manage the financial and administrative processes that decide whether care gets paid for.",
-  },
-}: {
-  /** Pass a different heading where the page hero already carries this one. */
-  heading?: { eyebrow: string; title: string; description: string };
-}) {
-  return (
-    <Section labelledBy="services-heading">
-      <SectionHeading
-        id="services-heading"
-        eyebrow={heading.eyebrow}
-        title={heading.title}
-        description={heading.description}
-      />
-
-      <div className="mt-12 space-y-12">
-        {serviceGroups.map((group) => (
-          <Reveal key={group.id}>
-            <div className="flex flex-col gap-3 border-b border-navy-100 pb-5 sm:flex-row sm:items-end sm:justify-between">
-              <div className="flex items-start gap-3">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-white">
-                  <Icon name={group.icon} className="size-5" />
-                </span>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-navy-900">{group.label}</h3>
-                  <p className="mt-1 max-w-2xl text-sm leading-relaxed text-navy-600">{group.blurb}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {servicesInGroup(group.id).map((service) => (
-                <LinkCard
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  icon={service.icon}
-                  title={service.navLabel}
-                  body={service.summary}
-                  footer={service.ctaLabel}
-                />
-              ))}
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-/** Section 14 — the revenue cycle as one connected process. */
-export function RevenueCycleFlow() {
-  return (
-    <Section tone="dark" labelledBy="flow-heading">
-      <SectionHeading
-        id="flow-heading"
-        tone="dark"
-        eyebrow="End-to-end delivery"
-        title="Nothing falls between the handoffs"
-        description="Most revenue leakage happens where ownership changes hands. We run the cycle as one process with a named owner and a measured outcome at every stage."
-      />
-
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {revenueCycleStages.map((stage, index) => (
-          <Reveal key={stage.title} delay={index * 40}>
-            <Card tone="dark" className="flex h-full items-start gap-4">
-              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-teal-400/15 text-sm font-bold text-teal-300">
-                {index + 1}
-              </span>
+          <Reveal key={point.title} delay={index * 80} className="h-full">
+            <div className="h-full rounded-2xl border border-navy-100/90 bg-white p-6 shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
               <div>
-                <h3 className="font-semibold text-white">{stage.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-navy-300">{stage.body}</p>
+                <span className="inline-flex size-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 mb-4">
+                  <Icon name={point.icon} className="size-6" />
+                </span>
+                <h3 className="font-display text-base font-bold text-navy-950 mb-2">{point.title}</h3>
+                <p className="text-sm leading-relaxed text-navy-600">{point.body}</p>
               </div>
-            </Card>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal className="mt-10">
-        <ButtonLink href="/services/revenue-cycle-management" variant="onDark" withArrow>
-          Explore end-to-end RCM
-        </ButtonLink>
-      </Reveal>
-    </Section>
-  );
-}
-
-/** Section 12 — specialty coverage. */
-export function SpecialtiesGrid({
-  limit,
-  heading = {
-    eyebrow: "Specialties",
-    title: "Multi-specialty medical coding",
-    description:
-      "Coders are assigned by specialty rather than pooled, so the person reading your documentation this month is the one who read it last month.",
-  },
-}: {
-  limit?: number;
-  /** Pass a different heading where the page hero already carries this one. */
-  heading?: { eyebrow: string; title: string; description: string };
-}) {
-  const shown = limit ? specialties.slice(0, limit) : specialties;
-
-  return (
-    <Section tone="tint" labelledBy="specialties-heading">
-      <SectionHeading
-        id="specialties-heading"
-        eyebrow={heading.eyebrow}
-        title={heading.title}
-        description={heading.description}
-      />
-
-      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {shown.map((specialty, index) => (
-          <Reveal key={specialty.slug} delay={Math.min(index * 25, 200)}>
-            <Link
-              href={`/specialties/${specialty.slug}`}
-              className="group flex h-full items-center justify-between gap-3 rounded-card border border-navy-100 bg-white px-5 py-4 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
-            >
-              <span className="flex items-center gap-3">
-                <span className="inline-flex size-9 items-center justify-center rounded-lg bg-navy-50 text-navy-700 transition group-hover:bg-teal-50 group-hover:text-teal-700">
-                  <Icon name={specialty.icon} className="size-4.5" />
-                </span>
-                <span className="text-sm font-semibold text-navy-900">{specialty.name}</span>
-              </span>
-              <ArrowRight className="size-4 shrink-0 text-navy-300 transition group-hover:translate-x-0.5 group-hover:text-teal-700" aria-hidden />
-            </Link>
-          </Reveal>
-        ))}
-      </div>
-
-      {limit && specialties.length > limit ? (
-        <Reveal className="mt-10">
-          <ButtonLink href="/specialties" variant="secondary" withArrow>
-            View all {specialties.length} specialties
-          </ButtonLink>
-        </Reveal>
-      ) : null}
-    </Section>
-  );
-}
-
-/** Section 24 — why choose us. */
-export function WhyChooseUsGrid({ tone = "light" }: { tone?: "light" | "tint" }) {
-  return (
-    <Section tone={tone} labelledBy="why-heading">
-      <SectionHeading
-        id="why-heading"
-        eyebrow="Why choose us"
-        title="What working with us actually looks like"
-        description="No claims we cannot stand behind. These are the operating commitments that show up in day-to-day delivery."
-      />
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {whyChooseUs.map((item, index) => (
-          <Reveal key={item.title} delay={index * 50} className="h-full">
-            <IconCard icon={item.icon} title={item.title} body={item.body} />
+              <div className="mt-5 pt-4 border-t border-navy-50 flex items-center gap-1 text-xs font-semibold text-teal-700">
+                <span>Verified Standard</span>
+                <Check className="size-3.5" aria-hidden />
+              </div>
+            </div>
           </Reveal>
         ))}
       </div>
@@ -213,36 +66,384 @@ export function WhyChooseUsGrid({ tone = "light" }: { tone?: "light" | "tint" })
   );
 }
 
-/** Section 26 — quality, security and compliance. */
-export function QualityAndCompliance() {
+/** Section 4 — Who We Are (Split Screen) */
+export function WhoWeAreSection() {
   return (
-    <Section labelledBy="quality-heading">
-      <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-        <SectionHeading
-          id="quality-heading"
-          eyebrow="Quality, security & compliance"
-          title="Discipline you can audit, not adjectives"
-          description="Healthcare organizations need accuracy, confidentiality and process discipline. Ours is built on documented workflows, quality monitoring, access control and continuous training."
-        >
-          <div className="mt-2 rounded-card border border-navy-200 bg-navy-50 p-5">
-            <p className="text-sm font-semibold text-navy-900">On compliance claims</p>
-            <p className="mt-2 text-sm leading-relaxed text-navy-600">{complianceNotice}</p>
+    <Section labelledBy="who-we-are-heading">
+      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        {/* Left Side: Modern Graphic & Core Capability Matrix */}
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl bg-navy-950 p-8 text-white shadow-lift border border-navy-800">
+            <div className="absolute -right-16 -top-16 size-64 rounded-full bg-teal-500/20 blur-2xl pointer-events-none" />
+            <div className="relative space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold text-teal-300">
+                <Sparkles className="size-3.5 text-teal-300" />
+                <span>Integrated Healthcare Partner</span>
+              </div>
+              <h3 className="font-display text-2xl font-bold leading-snug">
+                Connecting Professional Healthcare Services & Career Development
+              </h3>
+              <p className="text-sm leading-relaxed text-navy-200">
+                From high-precision medical coding delivery for healthcare organizations to specialized skill training and AAPC/AHIMA certification mentorship for aspirants.
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 pt-4">
+                {whoWeAre.highlights.map((item, idx) => (
+                  <div key={item} className="rounded-xl bg-white/5 border border-white/10 p-3.5">
+                    <p className="text-xs font-bold text-teal-300">0{idx + 1}</p>
+                    <p className="mt-1 text-xs font-medium text-white/90 leading-tight">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </SectionHeading>
+        </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {qualityPractices.map((practice, index) => (
-            <Reveal key={practice.title} delay={index * 40} className="h-full">
-              <div className="flex h-full items-start gap-3 rounded-card border border-navy-100 bg-white p-5 shadow-soft">
-                <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
-                  <Icon name={practice.icon} className="size-4.5" />
+        {/* Right Side: Exact PDF Copy & Details */}
+        <Reveal delay={80} className="space-y-6">
+          <SectionHeading
+            id="who-we-are-heading"
+            eyebrow="Who We Are"
+            title="Building the Healthcare Workforce of Tomorrow"
+            description={whoWeAre.content}
+          />
+          <div className="space-y-3 pt-2">
+            {[
+              "Quality-driven medical coding services with 98%+ accuracy benchmarks",
+              "Skill Development Programs (SDP) crafted for life sciences graduates",
+              "Structured final-semester internship programs with real-world exposure",
+              "Specialized preparation for CPC, CCS, and CRC credentials",
+            ].map((text) => (
+              <div key={text} className="flex items-start gap-3">
+                <span className="inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-800 mt-0.5">
+                  <Check className="size-3" strokeWidth={3} />
                 </span>
-                <div>
-                  <h3 className="text-sm font-bold text-navy-900">{practice.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-navy-600">{practice.body}</p>
+                <p className="text-sm text-navy-700 font-medium">{text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 pt-4">
+            <ButtonLink href="/about" withArrow>
+              Learn More About Us
+            </ButtonLink>
+            <ButtonLink href="/healthcare-solutions" variant="secondary">
+              Our Healthcare Solutions
+            </ButtonLink>
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+/** Section 5 & 6 — Our Mission & Our Vision */
+export function MissionVisionSection() {
+  return (
+    <Section tone="tint" labelledBy="mission-vision-heading">
+      <SectionHeading
+        id="mission-vision-heading"
+        eyebrow="Purpose & Direction"
+        title="Our Mission & Strategic Vision"
+        align="center"
+      />
+
+      <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        {/* Mission Card: Circular Diagram representation */}
+        <Reveal className="h-full">
+          <div className="h-full rounded-3xl border border-navy-100 bg-white p-8 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-lg bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider mb-4">
+                Our Mission
+              </div>
+              <h3 className="font-display text-xl font-bold text-navy-950 leading-snug">
+                Driving Quality, Precision and Career Empowerment
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-navy-600">
+                "{mission.statement}"
+              </p>
+
+              {/* Mission Nodes Flow: Quality -> Skills -> Accuracy -> Growth -> Success */}
+              <div className="mt-6 rounded-2xl bg-navy-50/70 p-5 border border-navy-100/60">
+                <p className="text-xs font-bold text-center text-navy-700 uppercase tracking-wider mb-4">
+                  LIGASE HEALTHCARE MISSION CYCLE
+                </p>
+                <div className="grid grid-cols-5 gap-2 text-center">
+                  {mission.nodes.map((node, i) => (
+                    <div key={node.label} className="flex flex-col items-center">
+                      <span className="size-8 rounded-full bg-teal-600 text-white text-xs font-bold flex items-center justify-center shadow-xs">
+                        0{i + 1}
+                      </span>
+                      <span className="mt-2 text-xs font-bold text-navy-900">{node.label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </Reveal>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-navy-100 flex items-center justify-between text-xs text-navy-500">
+              <span>Goal: End-to-end Healthcare Success</span>
+              <span className="font-bold text-teal-700">98%+ Accuracy Focus</span>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Vision Card: Timeline Journey */}
+        <Reveal delay={100} className="h-full">
+          <div className="h-full rounded-3xl border border-navy-100 bg-white p-8 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-lg bg-blue-50 px-3 py-1 text-xs font-bold text-blue-800 uppercase tracking-wider mb-4">
+                Our Vision
+              </div>
+              <h3 className="font-display text-xl font-bold text-navy-950 leading-snug">
+                {vision.tagline}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-navy-600">
+                "{vision.statement}"
+              </p>
+
+              {/* Vision Progression Path */}
+              <div className="mt-6 space-y-2">
+                {vision.steps.map((step, idx) => (
+                  <div
+                    key={step.stage}
+                    className="flex items-center gap-3 rounded-xl bg-navy-50/50 p-2.5 border border-navy-100/50"
+                  >
+                    <span className="size-6 shrink-0 rounded-md bg-navy-900 text-white text-[0.6875rem] font-bold flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <div className="flex-1 flex items-center justify-between">
+                      <span className="text-xs font-bold text-navy-900">{step.stage}</span>
+                      <span className="text-[0.75rem] text-navy-600 hidden sm:inline">{step.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-navy-100 flex items-center justify-between text-xs text-navy-500">
+              <span>Vision Blueprint</span>
+              <span className="font-bold text-teal-700">Global Leadership</span>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+/** Section 7 — Why Choose Us (8 Interactive Cards with Hover Lift) */
+export function WhyChooseUsGrid() {
+  return (
+    <Section labelledBy="why-choose-heading">
+      <SectionHeading
+        id="why-choose-heading"
+        eyebrow="Why Choose Ligase"
+        title="Eight Core Strengths That Define Our Advantage"
+        description="Comprehensive healthcare medical coding services, career-oriented training, and global certification pathways unified under one dedicated partner."
+        align="center"
+      />
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {whyChooseUs.map((card, idx) => (
+          <Reveal key={card.title} delay={idx * 60} className="h-full">
+            <div className="group h-full rounded-2xl border border-navy-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-300 hover:shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="inline-flex size-11 items-center justify-center rounded-xl bg-navy-50 text-navy-800 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                    <Icon name={card.icon} className="size-5" />
+                  </span>
+                  <span className="font-mono text-xs font-bold text-navy-400 group-hover:text-teal-700">
+                    {card.number}
+                  </span>
+                </div>
+                <h3 className="font-display text-base font-bold text-navy-950 group-hover:text-teal-800 transition-colors mb-2.5 leading-snug">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-navy-600">{card.body}</p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-navy-50 flex items-center gap-1.5 text-xs font-bold text-teal-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span>Learn more</span>
+                <ChevronRight className="size-3.5" />
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/** Section 8 — Our Healthcare Solutions */
+export function HealthcareSolutionsSection() {
+  return (
+    <Section tone="tint" labelledBy="solutions-heading">
+      <SectionHeading
+        id="solutions-heading"
+        eyebrow="Our Healthcare Solutions"
+        title="Supporting Healthcare Through Accuracy, Skills & Technology"
+        description="Ligase Healthcare supports healthcare organizations with professional services designed around quality, accuracy, efficiency, and skilled healthcare professionals."
+      />
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {healthcareSolutions.map((solution, index) => (
+          <Reveal key={solution.id} delay={index * 80}>
+            <div className="h-full rounded-3xl border border-navy-100 bg-white p-8 shadow-sm hover:shadow-md transition">
+              <div className="flex items-start gap-4 mb-4">
+                <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-2xl bg-navy-950 text-white">
+                  <Icon name={solution.icon} className="size-6" />
+                </span>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-navy-950">{solution.title}</h3>
+                  <p className="mt-1 text-sm text-navy-600 leading-relaxed">{solution.summary}</p>
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-2.5 border-t border-navy-100 pt-5">
+                <p className="text-xs font-bold uppercase tracking-wider text-navy-400">Key Deliverables</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {solution.deliverables.map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-xs font-semibold text-navy-800">
+                      <CheckCircle2 className="size-4 text-teal-600 shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 pt-5 border-t border-navy-100">
+                <Link
+                  href="/healthcare-solutions"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-700 hover:text-teal-800"
+                >
+                  Explore Solution Details
+                  <ArrowRight className="size-4" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/** Section 9 — Medical Coding Services Spotlight */
+export function MedicalCodingSpotlight() {
+  return (
+    <Section labelledBy="coding-spotlight-heading">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <Reveal className="space-y-6">
+          <SectionHeading
+            id="coding-spotlight-heading"
+            eyebrow="Medical Coding Services"
+            title="Accuracy That Supports Better Healthcare Operations"
+            description="Our medical coding services focus on accuracy, quality, compliance-oriented practices, and skilled professionals to support healthcare organizations."
+          />
+          <p className="text-sm text-navy-600 leading-relaxed">
+            Whether managing high-volume outpatient procedures or complex inpatient surgical charts, our teams uphold clinical integrity, minimize denials, and maintain compliant billing practices.
+          </p>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <ButtonLink href="/healthcare-solutions#medical-coding" withArrow>
+              Explore Medical Coding
+            </ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              Request Coding Audit
+            </ButtonLink>
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {medicalCodingServiceAreas.map((area) => (
+              <div
+                key={area.title}
+                className="rounded-2xl border border-navy-100 bg-white p-4.5 shadow-xs hover:border-teal-300 transition"
+              >
+                <div className="flex items-center gap-2.5 mb-2">
+                  <span className="inline-flex size-8 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+                    <Icon name={area.icon} className="size-4" />
+                  </span>
+                  <p className="font-display text-sm font-bold text-navy-950">{area.title}</p>
+                </div>
+                <p className="text-xs text-navy-600 leading-relaxed">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+/** Section 10 & 11 — Training Section & Learning Journey */
+export function TrainingSection() {
+  return (
+    <Section tone="tint" labelledBy="training-heading">
+      <SectionHeading
+        id="training-heading"
+        eyebrow="Professional Training"
+        title="Learn Medical Coding. Build Skills. Prepare for Your Career."
+        description="Our training programs are designed to provide practical, industry-oriented learning for individuals looking to build a career in medical coding and healthcare."
+        align="center"
+      />
+
+      {/* Program Cards */}
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        {trainingPrograms.map((prog, idx) => (
+          <Reveal key={prog.id} delay={idx * 80} className="h-full">
+            <div className="h-full rounded-3xl border border-navy-100 bg-white p-7 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">
+                    {prog.badge}
+                  </span>
+                  <span className="text-xs font-semibold text-navy-500">{prog.duration}</span>
+                </div>
+                <h3 className="font-display text-lg font-bold text-navy-950 mb-2.5">{prog.title}</h3>
+                <p className="text-sm leading-relaxed text-navy-600 mb-5">{prog.overview}</p>
+
+                <div className="space-y-2 border-t border-navy-50 pt-4 mb-6">
+                  {prog.features.map((feat) => (
+                    <div key={feat} className="flex items-start gap-2 text-xs text-navy-700">
+                      <Check className="size-3.5 text-teal-600 shrink-0 mt-0.5" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-navy-100">
+                <ButtonLink href="/training" className="w-full justify-center" size="sm" withArrow>
+                  Explore Program
+                </ButtonLink>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Section 11 — How Our Training Works (Progressive Timeline) */}
+      <div className="mt-16 rounded-3xl bg-navy-950 p-8 sm:p-10 text-white shadow-lift">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <p className="text-xs font-bold uppercase tracking-wider text-teal-300">How Our Training Works</p>
+          <h3 className="font-display text-2xl sm:text-3xl font-bold mt-2">Your 5-Step Learning Journey</h3>
+          <p className="text-sm text-navy-300 mt-2">A structured pathway from foundational theory to career launch.</p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {learningJourneySteps.map((step) => (
+            <div key={step.step} className="relative rounded-2xl bg-white/5 border border-white/10 p-5 backdrop-blur-sm">
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-sm font-black text-teal-400">{step.step}</span>
+                <span className="size-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center">
+                  <Icon name={step.icon} className="size-4" />
+                </span>
+              </div>
+              <h4 className="font-display text-base font-bold text-white">{step.title}</h4>
+              <p className="text-xs font-semibold text-teal-300 mt-0.5">{step.subtitle}</p>
+              <p className="text-xs text-navy-200 mt-2.5 leading-relaxed">{step.description}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -250,60 +451,147 @@ export function QualityAndCompliance() {
   );
 }
 
-/** Section 27 — technology, described by category. */
-export function TechnologySection({ tone = "tint" }: { tone?: "light" | "tint" }) {
+/** Section 12 — Internship Section */
+export function InternshipSection() {
   return (
-    <Section tone={tone} labelledBy="technology-heading">
-      <SectionHeading
-        id="technology-heading"
-        eyebrow="Technology"
-        title="Technology-enabled healthcare operations"
-        description="Our teams work inside your systems rather than moving your data into ours. That keeps your records authoritative and your access controls yours to revoke."
-      />
+    <Section labelledBy="internship-heading">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <Reveal className="space-y-6">
+          <SectionHeading
+            id="internship-heading"
+            eyebrow="Internship Opportunities"
+            title="Turn Classroom Knowledge Into Practical Experience"
+            description={internshipDetails.overview}
+          />
+          <div className="space-y-3 pt-2">
+            {internshipDetails.eligibility.map((el) => (
+              <div key={el} className="flex items-start gap-2.5">
+                <CheckCircle2 className="size-4.5 text-teal-600 shrink-0 mt-0.5" />
+                <p className="text-sm text-navy-700">{el}</p>
+              </div>
+            ))}
+          </div>
+          <div className="pt-3">
+            <ButtonLink href="/internships" withArrow>
+              Explore Internship Opportunities
+            </ButtonLink>
+          </div>
+        </Reveal>
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {technologyCategories.map((category, index) => (
-          <Reveal key={category.title} delay={index * 40} className="h-full">
-            <IconCard icon={category.icon} title={category.title} body={category.body} />
-          </Reveal>
-        ))}
+        <Reveal delay={80}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {internshipBenefits.map((ben) => (
+              <div
+                key={ben.title}
+                className="rounded-2xl border border-navy-100 bg-navy-50/60 p-6 shadow-xs hover:border-teal-300 hover:bg-white transition"
+              >
+                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-navy-950 text-teal-300 mb-4">
+                  <Icon name={ben.icon} className="size-5" />
+                </span>
+                <h4 className="font-display text-base font-bold text-navy-950 mb-2">{ben.title}</h4>
+                <p className="text-xs leading-relaxed text-navy-600">{ben.description}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
-
-      <Reveal className="mt-8">
-        <p className="max-w-3xl text-sm leading-relaxed text-navy-500">{technologyNotice}</p>
-      </Reveal>
     </Section>
   );
 }
 
-/** Section 23 — delivery process. */
-export function DeliveryProcess({ tone = "light" }: { tone?: "light" | "tint" }) {
+/** Section 13 & 14 — Certification Section & Journey */
+export function CertificationSection() {
   return (
-    <Section tone={tone} labelledBy="process-heading">
+    <Section tone="tint" labelledBy="cert-heading">
       <SectionHeading
-        id="process-heading"
-        eyebrow="Our process"
-        title="How an engagement actually starts"
-        description="Seven stages, each with a defined output. You will know what happens next and who owns it at every point."
+        id="cert-heading"
+        eyebrow="Industry Certifications"
+        title="Prepare. Certify. Advance."
+        description="We support aspiring medical coding professionals in preparing for recognized global certifications that open doors across international healthcare enterprises."
+        align="center"
       />
 
-      <ol className="mt-12 grid gap-5 lg:grid-cols-2">
-        {deliveryProcess.map((step, index) => (
-          <Reveal key={step.step} delay={index * 40} as="li" className="h-full">
-            <div className="flex h-full gap-5 rounded-card border border-navy-100 bg-white p-6 shadow-soft">
-              <span className="font-display text-2xl font-extrabold text-navy-200">
-                {String(step.step).padStart(2, "0")}
-              </span>
-              <div className="space-y-3">
-                <h3 className="text-lg font-bold text-navy-900">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-navy-600">{step.body}</p>
-                <ul className="flex flex-wrap gap-2 pt-1">
-                  {step.outputs.map((output) => (
-                    <li
-                      key={output}
-                      className="rounded-full bg-navy-50 px-2.5 py-1 text-[0.6875rem] font-semibold text-navy-700"
-                    >
-                      {output}
+      {/* Certification Cards */}
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {certificationsList.map((cert, idx) => (
+          <Reveal key={cert.id} delay={idx * 60} className="h-full">
+            <div className="h-full rounded-2xl border border-navy-100 bg-white p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-display text-xl font-black text-teal-700">{cert.code}</span>
+                  <span className="size-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center">
+                    <Icon name={cert.icon} className="size-4" />
+                  </span>
+                </div>
+                <h3 className="font-display text-base font-bold text-navy-950 mb-1">{cert.title}</h3>
+                <p className="text-xs font-semibold text-navy-500 mb-3">{cert.issuingBody}</p>
+                <p className="text-xs leading-relaxed text-navy-600 mb-4">{cert.description}</p>
+              </div>
+
+              <div className="border-t border-navy-50 pt-4">
+                <Link
+                  href="/certifications"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-teal-700 hover:text-teal-800"
+                >
+                  Certification Details
+                  <ChevronRight className="size-3.5" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Section 14 — Certification Journey */}
+      <div className="mt-16 rounded-3xl border border-navy-100 bg-white p-8 shadow-sm">
+        <div className="text-center max-w-xl mx-auto mb-8">
+          <p className="text-xs font-bold uppercase tracking-wider text-teal-700">The Certification Journey</p>
+          <h3 className="font-display text-xl sm:text-2xl font-bold text-navy-950 mt-1">
+            Your Career. Your Skills. Your Future.
+          </h3>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          {certificationJourneySteps.map((step) => (
+            <div key={step.step} className="rounded-2xl bg-navy-50/70 p-4 border border-navy-100/70">
+              <span className="font-mono text-xs font-bold text-teal-700">{step.step}</span>
+              <h4 className="font-display text-xs font-bold text-navy-950 mt-1 mb-1.5">{step.title}</h4>
+              <p className="text-[0.75rem] text-navy-600 leading-normal">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/** Section 15 — Student / Professional Success Section */
+export function StudentSuccessSection() {
+  return (
+    <Section labelledBy="success-heading">
+      <SectionHeading
+        id="success-heading"
+        eyebrow="Success Starts With Skills"
+        title="Success Starts With Skills"
+        description="Transforming ambitious candidates into industry-recognized medical coding professionals with market-leading accuracy and career velocity."
+        align="center"
+      />
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {successCategories.map((cat, idx) => (
+          <Reveal key={cat.title} delay={idx * 60} className="h-full">
+            <div className="h-full rounded-2xl border border-navy-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+              <div>
+                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-teal-50 text-teal-700 mb-4">
+                  <Icon name={cat.icon} className="size-5" />
+                </span>
+                <h3 className="font-display text-base font-bold text-navy-950 mb-2">{cat.title}</h3>
+                <p className="text-xs text-navy-600 leading-relaxed mb-4">{cat.description}</p>
+                <ul className="space-y-1.5 border-t border-navy-50 pt-3">
+                  {cat.points.map((pt) => (
+                    <li key={pt} className="flex items-center gap-2 text-xs font-medium text-navy-700">
+                      <Check className="size-3 text-teal-600 shrink-0" />
+                      <span>{pt}</span>
                     </li>
                   ))}
                 </ul>
@@ -311,216 +599,186 @@ export function DeliveryProcess({ tone = "light" }: { tone?: "light" | "tint" })
             </div>
           </Reveal>
         ))}
-      </ol>
-    </Section>
-  );
-}
-
-/**
- * Section 29 — performance.
- *
- * Renders metric labels and how each is measured. Numbers appear only for
- * metrics that carry a verified value in site.ts.
- */
-export function PerformanceSection() {
-  const verified = site.metrics.filter((metric) => metric.value);
-
-  return (
-    <Section tone="dark" labelledBy="performance-heading">
-      <SectionHeading
-        id="performance-heading"
-        tone="dark"
-        eyebrow="Performance"
-        title="Built around measurable performance"
-        description="These are the metrics we report on and hold ourselves to. We publish numbers only where the company can substantiate them, so figures appear here as they are verified."
-      />
-
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {site.metrics.map((metric, index) => (
-          <Reveal key={metric.label} delay={index * 40} className="h-full">
-            <Card tone="dark" className="flex h-full flex-col gap-2">
-              <p className="text-sm font-bold uppercase tracking-[0.14em] text-teal-300">{metric.label}</p>
-              <p className="font-display text-3xl font-extrabold text-white">
-                {metric.value ?? <span className="text-navy-500">Reported</span>}
-              </p>
-              <p className="text-sm leading-relaxed text-navy-300">{metric.note}</p>
-            </Card>
-          </Reveal>
-        ))}
-      </div>
-
-      {verified.length === 0 ? (
-        <Reveal className="mt-10 rounded-panel border border-dashed border-white/20 bg-white/[0.03] p-6">
-          <p className="text-sm font-bold uppercase tracking-[0.14em] text-teal-300">Internal note</p>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-navy-300">
-            Add verified figures to <code className="rounded bg-white/10 px-1.5 py-0.5">site.metrics</code> in{" "}
-            <code className="rounded bg-white/10 px-1.5 py-0.5">src/content/site.ts</code> and they will render as
-            headline numbers here. Section 29 of the website script prohibits publishing unsubstantiated statistics such
-            as accuracy percentages, coder counts or denial reduction claims.
-          </p>
-        </Reveal>
-      ) : null}
-    </Section>
-  );
-}
-
-/** Section 30 — case studies. */
-export function CaseStudiesSection({ limit }: { limit?: number }) {
-  const shown = limit ? caseStudies.slice(0, limit) : caseStudies;
-
-  return (
-    <Section labelledBy="case-studies-heading">
-      <SectionHeading
-        id="case-studies-heading"
-        eyebrow="Case studies"
-        title="Results that matter"
-        description="Anonymised engagements describing the problem, what we changed and what was measured. Client names and figures are published only with permission and verification."
-      />
-
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
-        {shown.map((study, index) => (
-          <Reveal key={study.slug} delay={index * 60} className="h-full">
-            <Link
-              href={`/case-studies/${study.slug}`}
-              className="group flex h-full flex-col gap-4 rounded-card border border-navy-100 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
-            >
-              <span className="text-xs font-bold uppercase tracking-[0.14em] text-teal-700">{study.reference}</span>
-              <h3 className="text-lg font-bold leading-snug text-navy-900">{study.title}</h3>
-              <p className="text-xs font-semibold uppercase tracking-wide text-navy-500">{study.clientType}</p>
-              <p className="text-sm leading-relaxed text-navy-600">{study.challenge}</p>
-              <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-teal-700">
-                Read case study
-                <ArrowRight className="size-4 transition group-hover:translate-x-0.5" aria-hidden />
-              </span>
-            </Link>
-          </Reveal>
-        ))}
       </div>
     </Section>
   );
 }
 
-/** Section 31 — testimonials. Empty until genuine, permissioned quotes exist. */
-export function TestimonialsSection() {
-  if (site.testimonials.length === 0) {
-    return (
-      <Section tone="tint" labelledBy="testimonials-heading">
-        <SectionHeading
-          id="testimonials-heading"
-          eyebrow="Client feedback"
-          title="What our clients say"
-          description="This section is reserved for genuine client testimonials."
-        />
-        <AwaitingContent title="Awaiting approved testimonials" className="mt-8">
-          Add real testimonials to <code className="rounded bg-white px-1.5 py-0.5">site.testimonials</code> in{" "}
-          <code className="rounded bg-white px-1.5 py-0.5">src/content/site.ts</code>, each with the person&apos;s name,
-          designation, organization and written permission to publish. Section 31 of the website script prohibits
-          placeholder or invented quotes, so nothing is shown until then.
-        </AwaitingContent>
-      </Section>
-    );
-  }
-
+/** Section 16 — Why Ligase? (Animated Venn / 3-Pillar Diagram) */
+export function WhyLigaseEcosystemSection() {
   return (
-    <Section tone="tint" labelledBy="testimonials-heading">
-      <SectionHeading
-        id="testimonials-heading"
-        eyebrow="Client feedback"
-        title="What our clients say"
-        align="center"
-      />
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
-        {site.testimonials.map((testimonial) => (
-          <Card key={testimonial.name} className="flex h-full flex-col gap-5">
-            <blockquote className="text-base leading-relaxed text-navy-700">&ldquo;{testimonial.quote}&rdquo;</blockquote>
-            <div className="mt-auto border-t border-navy-100 pt-4">
-              <p className="font-semibold text-navy-900">{testimonial.name}</p>
-              <p className="text-sm text-navy-600">
-                {testimonial.designation}, {testimonial.organization}
-              </p>
+    <Section tone="dark" labelledBy="why-ligase-heading">
+      <div className="text-center max-w-2xl mx-auto space-y-3">
+        <p className="text-xs font-bold uppercase tracking-wider text-teal-300">Complete Career Ecosystem</p>
+        <h2 id="why-ligase-heading" className="text-3xl sm:text-4xl font-extrabold text-white">
+          Why Ligase Healthcare?
+        </h2>
+        <p className="text-base text-navy-200">
+          {whyLigaseEcosystem.statement}
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        {whyLigaseEcosystem.pillars.map((pillar, idx) => (
+          <Reveal key={pillar.title} delay={idx * 80} className="h-full">
+            <div className="h-full rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md hover:bg-white/10 transition duration-300 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-teal-500/20 text-teal-300">
+                    <Icon name={pillar.icon} className="size-6" />
+                  </span>
+                  <span className="text-xs font-bold text-teal-300 uppercase tracking-wider">
+                    {pillar.tagline}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-white mb-2">{pillar.title}</h3>
+                <p className="text-sm text-navy-200 leading-relaxed">{pillar.description}</p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-semibold text-teal-300">
+                <Sparkles className="size-3.5" />
+                <span>Ecosystem Pillar 0{idx + 1}</span>
+              </div>
             </div>
-          </Card>
+          </Reveal>
         ))}
       </div>
     </Section>
   );
 }
 
-/** Section 32 — FAQ. */
-export function FaqSection({ limit }: { limit?: number }) {
-  const shown = limit ? faqs.slice(0, limit) : faqs;
-
+/** Section 17 — Technology Section */
+export function TechnologySection() {
   return (
-    <Section labelledBy="faq-heading">
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+    <Section labelledBy="tech-heading">
+      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <Reveal className="space-y-6">
+          <SectionHeading
+            id="tech-heading"
+            eyebrow="Technology-Enabled Learning"
+            title={technologySectionData.heading}
+            description={technologySectionData.content}
+          />
+          <div className="rounded-2xl bg-teal-50/80 border border-teal-100 p-5">
+            <p className="font-display text-sm font-bold text-teal-900">
+              Tagline: {technologySectionData.tagline}
+            </p>
+            <p className="text-xs text-teal-800 mt-1">
+              Leveraging advanced simulated chart environments and intelligent workflow tooling for real-world excellence.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {technologySectionData.visualPillars.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-navy-100 bg-white p-5 shadow-xs hover:border-teal-300 transition"
+              >
+                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-navy-950 text-teal-300 mb-3">
+                  <Icon name={item.icon} className="size-5" />
+                </span>
+                <h4 className="font-display text-sm font-bold text-navy-950 mb-1">{item.title}</h4>
+                <p className="text-xs text-navy-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+/** Section 18 — Careers Section Preview */
+export function CareersSection() {
+  return (
+    <Section tone="tint" labelledBy="careers-preview-heading">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
         <SectionHeading
-          id="faq-heading"
-          eyebrow="FAQ"
-          title="Questions we get asked first"
-          description="If your question is not here, ask it directly — we would rather answer it than have you guess."
+          id="careers-preview-heading"
+          eyebrow="Careers at Ligase"
+          title="Build Your Career With Us"
+          description="We are building a professional environment where healthcare knowledge, coding skills, continuous learning, and career development come together."
         >
-          <ButtonLink href="/contact" variant="secondary" className="mt-3 self-start" withArrow>
-            Ask us directly
-          </ButtonLink>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <ButtonLink href="/careers" withArrow>
+              View Opportunities
+            </ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">
+              Send Your Resume
+            </ButtonLink>
+          </div>
         </SectionHeading>
 
-        <Reveal>
-          <Accordion items={shown} />
-          {limit && faqs.length > limit ? (
-            <Link href="/faqs" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700">
-              See all {faqs.length} questions
-              <ArrowRight className="size-4" aria-hidden />
-            </Link>
-          ) : null}
+        <Reveal delay={80} className="rounded-3xl border border-navy-100 bg-white p-8 shadow-sm">
+          <h3 className="font-display text-lg font-bold text-navy-950 mb-4">
+            Why Grow Your Career at Ligase Healthcare?
+          </h3>
+          <ul className="space-y-3.5">
+            {[
+              "Direct exposure to international healthcare and coding workflows",
+              "Structured career path from Trainee Coder to QA Auditor and Lead",
+              "Sponsorship and mentorship for AAPC / AHIMA certifications",
+              "Dynamic culture built on accuracy, ethics, and mutual growth",
+            ].map((text) => (
+              <li key={text} className="flex items-start gap-3">
+                <span className="inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-800 mt-0.5">
+                  <Check className="size-3" strokeWidth={3} />
+                </span>
+                <span className="text-xs sm:text-sm font-medium text-navy-700">{text}</span>
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </Section>
   );
 }
 
-/** Section 28 — who we serve. */
-export function ClientTypesSection({ tone = "tint" }: { tone?: "light" | "tint" }) {
+/** Section 20 — Contact Preview */
+export function ContactPreview() {
   return (
-    <Section tone={tone} labelledBy="clients-heading">
-      <SectionHeading
-        id="clients-heading"
-        eyebrow="Who we serve"
-        title="Healthcare organizations we support"
-        description="Different settings fail in different places. The service model changes accordingly."
-      />
-
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {clientTypes.map((client, index) => (
-          <Reveal key={client.title} delay={index * 50} className="h-full">
-            <IconCard icon={client.icon} title={client.title} body={client.body}>
-              <CheckList items={client.needs} className="mt-3 border-t border-navy-100 pt-4" />
-            </IconCard>
-          </Reveal>
-        ))}
+    <Section tone="tint" labelledBy="contact-preview-heading">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <SectionHeading
+          id="contact-preview-heading"
+          eyebrow="Let's Connect"
+          title="Start Your Journey With Ligase Healthcare"
+          description="Whether you are a healthcare organization looking for professional support or an aspiring medical coding professional looking to build your career, Ligase Healthcare is here to help."
+        />
+        <Reveal delay={80} className="rounded-3xl border border-navy-100 bg-white p-8 shadow-sm">
+          <dl className="space-y-4">
+            <div>
+              <dt className="text-xs font-bold uppercase tracking-wider text-navy-400">Email Address</dt>
+              <dd className="mt-1">
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="text-base sm:text-lg font-bold text-navy-950 hover:text-teal-700"
+                >
+                  {site.contact.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs font-bold uppercase tracking-wider text-navy-400">Phone</dt>
+              <dd className="mt-1">
+                <a href={site.contact.phoneHref} className="text-base sm:text-lg font-bold text-navy-950 hover:text-teal-700">
+                  {site.contact.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs font-bold uppercase tracking-wider text-navy-400">Availability</dt>
+              <dd className="mt-1 text-xs text-navy-600">{site.contact.hours}</dd>
+            </div>
+          </dl>
+          <div className="mt-6 pt-5 border-t border-navy-100">
+            <ButtonLink href="/contact" className="w-full justify-center" withArrow>
+              Open Enquiry Form
+            </ButtonLink>
+          </div>
+        </Reveal>
       </div>
     </Section>
-  );
-}
-
-/** Section 7 — core values, reused on the about page. */
-export function CoreValuesGrid() {
-  return (
-    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {coreValues.map((value, index) => (
-        <Reveal key={value.title} delay={index * 50} className="h-full">
-          <IconCard icon={value.icon} title={value.title} body={value.body} />
-        </Reveal>
-      ))}
-    </div>
-  );
-}
-
-/** Section 20 — quality assurance loop, reused across pages. */
-export function QualityLoop({ tone = "light" }: { tone?: "light" | "dark" }) {
-  return (
-    <WorkflowStrip
-      tone={tone}
-      steps={["Coder review", "QA review", "Error analysis", "Feedback", "Corrective action", "Re-audit"]}
-    />
   );
 }

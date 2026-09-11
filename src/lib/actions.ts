@@ -13,7 +13,7 @@ import {
   type FormState,
 } from "./validation";
 
-const GENERIC_ERROR = "Something went wrong sending your message. Please try again, or email us directly.";
+const GENERIC_ERROR = "Something went wrong sending your message. Please try again, or email us directly at " + site.contact.email;
 const RATE_LIMITED = "Too many submissions from this connection. Please try again shortly.";
 
 const MAX_RESUME_BYTES = 5 * 1024 * 1024;
@@ -25,7 +25,6 @@ const ALLOWED_RESUME_TYPES = new Set([
 
 async function guard(formData: FormData): Promise<FormState | null> {
   if (isHoneypotTripped(formData)) {
-    // Report success to the bot rather than revealing the check.
     return { status: "success", message: "Thank you. Your enquiry has been received." };
   }
   if (isRateLimited(await clientKey())) {
@@ -49,13 +48,12 @@ export async function submitContact(_prev: FormState, formData: FormData): Promi
   }
 
   const { consent, ...rest } = parsed.data;
-  // Consent is recorded with the lead so there is an audit trail of it.
   const fields = { ...rest, consentGiven: consent ? "Yes" : "No" };
 
   try {
     await sendLead({
       kind: "contact",
-      subject: `Website enquiry — ${fields.company}`,
+      subject: `Website enquiry — ${fields.interest} — ${fields.fullName}`,
       fields,
     });
   } catch (error) {
@@ -65,7 +63,7 @@ export async function submitContact(_prev: FormState, formData: FormData): Promi
 
   return {
     status: "success",
-    message: `Thank you for contacting ${site.name}. Our team will review your enquiry and get back to you shortly.`,
+    message: `Thank you for contacting ${site.name}. Our team will review your enquiry regarding ${fields.interest} and get back to you shortly.`,
   };
 }
 
@@ -86,7 +84,7 @@ export async function submitServiceEnquiry(_prev: FormState, formData: FormData)
   try {
     await sendLead({
       kind: "service-enquiry",
-      subject: `Service enquiry — ${parsed.data.service ?? "general"} — ${parsed.data.company}`,
+      subject: `Service enquiry — ${parsed.data.service ?? "general"} — ${parsed.data.fullName}`,
       fields: parsed.data,
     });
   } catch (error) {
@@ -149,7 +147,7 @@ export async function submitApplication(_prev: FormState, formData: FormData): P
   return {
     status: "success",
     message:
-      "Thank you for applying. Our talent team reviews every application and will contact you if there is a match.",
+      "Thank you for applying to Ligase Healthcare. Our talent team reviews every application and will contact you if there is a match.",
   };
 }
 
@@ -173,5 +171,5 @@ export async function subscribeToInsights(_prev: FormState, formData: FormData):
     return { status: "error", message: GENERIC_ERROR };
   }
 
-  return { status: "success", message: "You are on the list. Look out for our next healthcare insights update." };
+  return { status: "success", message: "You are on the list. Look out for our next healthcare updates." };
 }

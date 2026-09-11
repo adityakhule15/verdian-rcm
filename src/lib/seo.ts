@@ -53,7 +53,7 @@ export function organizationSchema(): Json {
     image: absoluteUrl("/opengraph-image"),
     email: site.contact.email,
     telephone: site.contact.phone,
-    sameAs: [site.contact.linkedin],
+    sameAs: Object.values(site.contact.social),
     address: site.offices.map((office) => ({
       "@type": "PostalAddress",
       name: office.label,

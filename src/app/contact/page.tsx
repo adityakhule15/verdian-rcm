@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
@@ -9,9 +9,9 @@ import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 
 export const metadata = buildMetadata({
-  title: "Contact Us",
+  title: "Contact Us | Ligase Healthcare",
   description:
-    "Talk to our team about medical coding, medical billing, revenue cycle management, AR follow-up, denial management or credentialing support.",
+    "Start your journey with Ligase Healthcare. Contact us for Medical Coding Services, Skill Development Programs (SDP), Final-Semester Internships, or Certification Preparation (CPC, CCS, CRC).",
   path: "/contact",
 });
 
@@ -21,109 +21,90 @@ export default function ContactPage() {
       <JsonLd data={breadcrumbSchema([{ label: "Contact Us", path: "/contact" }])} />
 
       <PageHero
-        eyebrow="Contact"
-        title="Let's start a conversation"
-        description="Tell us about your organization and what you need. We will review the requirement and come back with a recommended service model — including where we are not the right fit."
+        eyebrow="Let's Connect"
+        title="Start Your Journey With Ligase Healthcare"
+        description="Whether you are a healthcare organization looking for professional medical coding support or an aspiring candidate looking to build your career through our training and internships, we are here to help."
         breadcrumbs={[{ label: "Contact Us" }]}
       />
 
       <Section labelledBy="contact-form-heading">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+          {/* Form Side */}
           <div>
-            <h2 id="contact-form-heading" className="text-2xl font-bold text-navy-900">
-              Send us an enquiry
+            <div className="flex items-center gap-2 mb-2">
+              <span className="size-2 rounded-full bg-teal-600" />
+              <p className="text-xs font-bold uppercase tracking-wider text-teal-800">Direct Enquiry</p>
+            </div>
+            <h2 id="contact-form-heading" className="text-2xl sm:text-3xl font-bold text-navy-950">
+              How Can We Assist You?
             </h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-navy-600">
-              The more detail you give about volumes, systems and specialties, the more specific our response can be.
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-navy-600 mb-8">
+              Fill in the form below and our specialized healthcare or academic advisory team will connect with you.
             </p>
-            <div className="mt-8">
+            <div className="rounded-3xl border border-navy-100 bg-white p-6 sm:p-8 shadow-sm">
               <ContactForm />
             </div>
           </div>
 
-          <div className="space-y-5">
+          {/* Contact Details Side */}
+          <div className="space-y-6">
             <Reveal>
-              <Card className="space-y-5">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal-700">Direct contact</p>
-
-                <a
-                  href={site.contact.phoneHref}
-                  className="flex items-start gap-3 text-navy-900 transition hover:text-teal-700"
-                >
-                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-navy-50 text-navy-700">
-                    <Phone className="size-4" aria-hidden />
-                  </span>
-                  <span>
-                    <span className="block text-xs font-semibold uppercase tracking-wide text-navy-500">Call us</span>
-                    <span className="block font-semibold">{site.contact.phone}</span>
-                    <span className="block text-sm text-navy-600">{site.contact.phoneAlt}</span>
-                  </span>
-                </a>
+              <Card className="space-y-5 border-navy-100 bg-white shadow-sm p-7">
+                <p className="text-xs font-bold uppercase tracking-wider text-teal-800">Official Channels</p>
 
                 <a
                   href={`mailto:${site.contact.email}`}
                   className="flex items-start gap-3 text-navy-900 transition hover:text-teal-700"
                 >
-                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-navy-50 text-navy-700">
-                    <Mail className="size-4" aria-hidden />
+                  <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
+                    <Mail className="size-5" aria-hidden />
                   </span>
-                  <span>
-                    <span className="block text-xs font-semibold uppercase tracking-wide text-navy-500">Email us</span>
-                    <span className="block font-semibold">{site.contact.email}</span>
-                    <span className="block text-sm text-navy-600">Careers: {site.contact.careersEmail}</span>
-                  </span>
+                  <div>
+                    <span className="block text-xs font-semibold uppercase tracking-wide text-navy-500">Official Email</span>
+                    <span className="block font-bold text-base text-navy-950">{site.contact.email}</span>
+                    <span className="block text-xs text-navy-600 mt-0.5">Careers: {site.contact.careersEmail}</span>
+                  </div>
                 </a>
 
-                <p className="border-t border-navy-100 pt-4 text-sm leading-relaxed text-navy-600">
-                  {site.contact.hours}
-                </p>
+                <a
+                  href={site.contact.phoneHref}
+                  className="flex items-start gap-3 text-navy-900 transition hover:text-teal-700"
+                >
+                  <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
+                    <Phone className="size-5" aria-hidden />
+                  </span>
+                  <div>
+                    <span className="block text-xs font-semibold uppercase tracking-wide text-navy-500">Phone Support</span>
+                    <span className="block font-bold text-base text-navy-950">{site.contact.phone}</span>
+                    <span className="block text-xs text-navy-600 mt-0.5">International: {site.contact.phoneAlt}</span>
+                  </div>
+                </a>
+
+                <div className="border-t border-navy-100 pt-4 text-xs leading-relaxed text-navy-600">
+                  <p className="font-bold text-navy-900 mb-0.5">Operating Hours:</p>
+                  <p>{site.contact.hours}</p>
+                </div>
               </Card>
             </Reveal>
 
             {site.offices.map((office, index) => (
               <Reveal key={office.label} delay={(index + 1) * 60}>
-                <Card className="space-y-3">
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal-700">{office.label}</p>
-                  <p className="flex gap-3 text-sm leading-relaxed text-navy-700">
-                    <MapPin className="mt-0.5 size-4 shrink-0 text-navy-400" aria-hidden />
-                    <span>
+                <Card className="space-y-2 border-navy-100 bg-white shadow-sm p-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-teal-800">{office.label}</p>
+                  <div className="flex gap-3 text-xs leading-relaxed text-navy-700 pt-1">
+                    <MapPin className="mt-0.5 size-4 shrink-0 text-teal-600" aria-hidden />
+                    <div>
                       {office.lines.map((line) => (
-                        <span key={line} className="block">
+                        <p key={line} className="font-medium">
                           {line}
-                        </span>
+                        </p>
                       ))}
-                    </span>
-                  </p>
+                    </div>
+                  </div>
                 </Card>
               </Reveal>
             ))}
-
-            {/* Section 34 — map placeholder. Kept as a static block so no
-                third-party script or API key ships before it is approved. */}
-            <Reveal delay={200}>
-              <div className="flex h-56 flex-col items-center justify-center gap-2 rounded-panel border border-dashed border-navy-300 bg-navy-50 p-6 text-center">
-                <MapPin className="size-6 text-navy-400" aria-hidden />
-                <p className="text-sm font-semibold text-navy-800">Map placeholder</p>
-                <p className="max-w-xs text-xs leading-relaxed text-navy-500">
-                  Embed a map here once the office addresses are confirmed. Loading a third-party map has privacy and
-                  cookie-consent implications, so it is deliberately not included by default.
-                </p>
-              </div>
-            </Reveal>
           </div>
-        </div>
-      </Section>
-
-      <Section tone="dark" className="py-14" labelledBy="phi-warning-heading">
-        <div className="flex flex-col gap-3">
-          <h2 id="phi-warning-heading" className="font-display text-xl font-bold text-white">
-            Please do not send patient information through this form
-          </h2>
-          <p className="max-w-3xl text-sm leading-relaxed text-navy-300">
-            This form is not a secure channel for protected health information. If you need to share clinical
-            documentation as part of an assessment, contact us first and we will set up an approved secure transfer
-            method.
-          </p>
         </div>
       </Section>
     </>

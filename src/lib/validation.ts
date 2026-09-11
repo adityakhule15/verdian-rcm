@@ -16,47 +16,47 @@ const optionalText = (max: number) =>
     .transform((value) => (value === "" ? undefined : value));
 
 const email = z
-  .string({ error: "Work email is required." })
+  .string({ error: "Email address is required." })
   .trim()
-  .min(1, "Work email is required.")
+  .min(1, "Email address is required.")
   .max(160, "Email is too long.")
   .regex(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, "Enter a valid email address.");
 
-/** Section 34 — contact form fields. */
+/** PDF Section 20 — Contact Form Schema */
 export const contactSchema = z.object({
-  fullName: trimmed(2, 120, "Full name"),
-  company: trimmed(2, 160, "Organization name"),
+  fullName: trimmed(2, 120, "Full Name"),
   email,
-  phone: trimmed(6, 40, "Phone number"),
-  country: optionalText(80),
-  organizationType: optionalText(80),
-  servicesRequired: optionalText(200),
-  monthlyVolume: optionalText(80),
-  currentChallenge: optionalText(600),
-  message: trimmed(10, 3000, "Message"),
-  consent: z.literal("on", { message: "Please confirm you agree to be contacted." }),
+  phone: trimmed(6, 40, "Phone Number"),
+  interest: z.enum(
+    [
+      "Medical Coding Services",
+      "Training Programs",
+      "Internship",
+      "Certification Support",
+      "Career Opportunities",
+      "General Enquiry",
+    ],
+    { error: "Please select an interest area." },
+  ),
+  message: trimmed(5, 3000, "Message"),
+  consent: z.literal("on", { message: "Please confirm you agree to be contacted." }).optional(),
 });
 
-/** Section 43 — shorter per-service lead form. */
 export const serviceEnquirySchema = z.object({
-  fullName: trimmed(2, 120, "Full name"),
-  company: trimmed(2, 160, "Organization name"),
+  fullName: trimmed(2, 120, "Full Name"),
   email,
-  phone: trimmed(6, 40, "Phone number"),
+  phone: trimmed(6, 40, "Phone Number"),
   service: optionalText(120),
-  monthlyVolume: optionalText(80),
   message: optionalText(2000),
 });
 
-/** Section 35 — careers application. */
 export const careerSchema = z.object({
-  fullName: trimmed(2, 120, "Full name"),
+  fullName: trimmed(2, 120, "Full Name"),
   email,
-  phone: trimmed(6, 40, "Phone number"),
+  phone: trimmed(6, 40, "Phone Number"),
   position: trimmed(2, 120, "Position"),
   experience: trimmed(1, 60, "Experience"),
   certifications: optionalText(160),
-  noticePeriod: optionalText(80),
   message: optionalText(2000),
 });
 
@@ -68,16 +68,11 @@ export type FormState = {
   status: "idle" | "success" | "error";
   message?: string;
   fieldErrors?: FieldErrors;
-  /** Echoed back so a failed submission does not wipe what was typed. */
   values?: Record<string, string>;
 };
 
 export const initialFormState: FormState = { status: "idle" };
 
-/**
- * Maps zod issues to a flat `field -> first message` record. Written by hand
- * rather than using a zod helper so it stays stable across zod minor versions.
- */
 export function toFieldErrors(error: z.ZodError): FieldErrors {
   const errors: FieldErrors = {};
   for (const issue of error.issues) {

@@ -1,252 +1,124 @@
-/** Section 35 — careers. */
-export type JobOpening = {
+import type { IconName } from "@/components/ui/Icon";
+
+export interface JobOpening {
   id: string;
   title: string;
-  team: "Coding" | "Quality" | "Revenue Cycle" | "Operations" | "Training";
+  department: string;
   location: string;
-  workMode: "On-site" | "Hybrid" | "Remote";
+  type: string;
   experience: string;
-  summary: string;
-  responsibilities: readonly string[];
-  requirements: readonly string[];
-};
+  description: string;
+  requirements: string[];
+  responsibilities: string[];
+}
 
-/**
- * Openings are illustrative role definitions for the launch site. Confirm each
- * one with HR — title, location, experience band and requirements — before the
- * careers page goes live, and remove any role that is not genuinely open.
- */
-export const jobOpenings: readonly JobOpening[] = [
+export const careerValues: ReadonlyArray<{ title: string; body: string; icon: IconName }> = [
   {
-    id: "medical-coder",
-    title: "Medical Coder",
-    team: "Coding",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "1–3 years",
-    summary:
-      "Review clinical documentation and assign accurate ICD-10-CM, CPT and HCPCS codes for an assigned specialty.",
-    responsibilities: [
-      "Code assigned charts within agreed turnaround times",
-      "Raise documentation queries where the record is unclear",
-      "Meet accuracy targets under the account quality plan",
-      "Apply payer-specific coding guidance",
-    ],
+    title: "Continuous Learning",
+    body: "Access to ongoing training, AAPC/AHIMA certification sponsorship, and specialty workshops.",
+    icon: "graduationCap",
+  },
+  {
+    title: "Supportive Mentorship",
+    body: "Learn alongside industry-certified senior coders and healthcare managers dedicated to your growth.",
+    icon: "users",
+  },
+  {
+    title: "Merit-Driven Growth",
+    body: "Clear career tracks from trainee coder to senior auditor, team lead, and technical manager.",
+    icon: "trendingUp",
+  },
+  {
+    title: "Technology & Culture",
+    body: "State-of-the-art digital tools, positive work-life balance, and an ethical healthcare environment.",
+    icon: "sparkles",
+  },
+];
+
+export const careerBenefits = careerValues;
+
+export const openPositions: JobOpening[] = [
+  {
+    id: "medical-coding-specialist",
+    title: "Medical Coding Specialist (Inpatient / Outpatient)",
+    department: "Healthcare Services",
+    location: "Hybrid / On-site (Hyderabad / Pune)",
+    type: "Full-Time",
+    experience: "1 – 4 Years",
+    description:
+      "Responsible for reviewing clinical documentation and assigning accurate ICD-10-CM, CPT, and HCPCS codes for hospital and clinic encounters.",
     requirements: [
-      "Coding certification (CPC, CCS or equivalent)",
-      "Working knowledge of ICD-10-CM, CPT and HCPCS",
-      "Experience in at least one clinical specialty",
-      "Comfortable working inside client EHR systems",
+      "Certified coder (CPC, COC, CCS, or equivalent AAPC/AHIMA credential)",
+      "Bachelor's degree in Life Sciences, Pharmacy, Nursing, or related discipline",
+      "Demonstrated accuracy of 95%+ in chart abstraction and code assignment",
+      "Strong understanding of Anatomy, Physiology, and Medical Terminology",
+    ],
+    responsibilities: [
+      "Review electronic health records and assign accurate codes in compliance with official guidelines",
+      "Maintain high accuracy and agreed daily productivity benchmarks",
+      "Collaborate with quality auditors and participate in continuous feedback sessions",
     ],
   },
   {
-    id: "senior-medical-coder",
-    title: "Senior Medical Coder",
-    team: "Coding",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "4–7 years",
-    summary:
-      "Handle complex charts and escalations for a specialty and support coders with code-level guidance.",
-    responsibilities: [
-      "Code complex and escalated charts",
-      "Provide guidance to coders on the account",
-      "Support audit response and correction",
-      "Contribute to specialty coding documentation",
-    ],
+    id: "medical-coding-trainer",
+    title: "Senior Medical Coding Trainer & Mentor",
+    department: "Training & Skill Development",
+    location: "On-site / Classroom",
+    type: "Full-Time",
+    experience: "3 – 6 Years",
+    description:
+      "Lead our Skill Development Programs (SDP), delivering engaging training modules, practical chart drills, and CPC/CCS exam preparation.",
     requirements: [
-      "Coding certification with specialty depth",
-      "Track record of sustained accuracy performance",
-      "Experience mentoring or reviewing other coders",
+      "AAPC / AHIMA certified (CPC / CCS / CPMA / Approved Instructor credential preferred)",
+      "Proven track record of training life science graduates and junior coders",
+      "Exceptional communication, presentation, and mentoring abilities",
+    ],
+    responsibilities: [
+      "Deliver comprehensive curriculum across Medical Terminology, Anatomy, ICD-10, and CPT",
+      "Conduct mock exams, analyze trainee performance, and provide tailored remediation",
+      "Design practical chart exercises and keep course materials aligned with annual code revisions",
     ],
   },
   {
-    id: "qa-analyst",
-    title: "QA Analyst",
-    team: "Quality",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "3–6 years",
-    summary:
-      "Audit coded charts against the quality plan, categorise errors by root cause and deliver coder feedback.",
-    responsibilities: [
-      "Execute audit sampling plans",
-      "Categorise errors by root cause and impact",
-      "Deliver individual coder feedback",
-      "Track corrective actions and re-audit results",
-    ],
+    id: "coding-qa-auditor",
+    title: "Quality Assurance & Coding Auditor",
+    department: "Quality & Compliance",
+    location: "Hybrid",
+    type: "Full-Time",
+    experience: "3 – 5 Years",
+    description:
+      "Perform multi-tier pre-bill and post-bill quality audits, analyze error patterns, and formulate corrective feedback for coding teams.",
     requirements: [
-      "Coding certification",
-      "Auditing or quality review experience",
-      "Ability to write clear, evidence-based findings",
+      "Certified CPC, CCS, or CPMA with extensive specialty auditing experience",
+      "Expertise in payer guidelines, CCI edits, LCD/NCD policies, and DRG validation",
+      "Strong analytical skills with proficiency in audit reporting tools",
+    ],
+    responsibilities: [
+      "Audit sample charts across all active client queues to ensure adherence to 98%+ accuracy standards",
+      "Prepare detailed audit reports identifying trends, root causes, and training needs",
+      "Conduct educational feedback sessions with coding teams",
     ],
   },
   {
-    id: "coding-auditor",
-    title: "Coding Auditor",
-    team: "Quality",
-    location: "Global delivery center",
-    workMode: "Hybrid",
-    experience: "5+ years",
-    summary:
-      "Run pre-bill, post-bill and focused audits and produce findings clients can act on.",
-    responsibilities: [
-      "Design and execute audit scopes",
-      "Quantify financial and compliance impact",
-      "Present findings to internal and client stakeholders",
-      "Recommend and follow through on corrective action",
-    ],
+    id: "final-semester-intern",
+    title: "Medical Coding Intern (Final Semester Students)",
+    department: "Internship & Academy",
+    location: "On-site / Training Hub",
+    type: "Internship (3 – 6 Months)",
+    experience: "Fresher / Final Year Student",
+    description:
+      "Hands-on internship opportunity for graduating students to gain real-world exposure to medical coding, clinical terminology, and industry EHR workflows.",
     requirements: [
-      "Coding certification with audit experience",
-      "Strong documentation and reporting skills",
-      "Familiarity with payer audit expectations",
+      "Currently in the final semester/year of B.Pharm, M.Pharm, B.Sc/M.Sc Life Sciences, Nursing, or Biotech",
+      "Keen interest in building a career in Healthcare Technology & Medical Coding",
+      "Strong foundational grasp of human biological systems and medical terms",
     ],
-  },
-  {
-    id: "ar-specialist",
-    title: "AR Specialist",
-    team: "Revenue Cycle",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "1–4 years",
-    summary:
-      "Work outstanding claims by value and root cause, follow up with payers and document every contact.",
     responsibilities: [
-      "Follow up on outstanding claims by call and payer portal",
-      "Resolve rejections and route denials for correction",
-      "Identify filing-limit risk and escalate",
-      "Maintain accurate account notes",
-    ],
-    requirements: [
-      "US healthcare AR or medical billing experience",
-      "Comfortable with payer portals and call follow-up",
-      "Clear written and spoken English",
-    ],
-  },
-  {
-    id: "denial-management-specialist",
-    title: "Denial Management Specialist",
-    team: "Revenue Cycle",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "2–5 years",
-    summary:
-      "Categorise, correct and appeal denials, and report the causes back to the teams that can prevent them.",
-    responsibilities: [
-      "Categorise denials by root cause",
-      "Prepare corrected claims and appeals",
-      "Track appeal outcomes",
-      "Report denial trends by payer and reason",
-    ],
-    requirements: [
-      "Denial management or AR experience",
-      "Understanding of payer appeal processes",
-      "Analytical approach to recurring issues",
-    ],
-  },
-  {
-    id: "medical-billing-specialist",
-    title: "Medical Billing Specialist",
-    team: "Revenue Cycle",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "1–4 years",
-    summary:
-      "Handle charge entry, claim creation, scrubbing and submission inside client practice management systems.",
-    responsibilities: [
-      "Enter charges and demographics accurately",
-      "Create and scrub claims against payer edits",
-      "Resolve clearinghouse rejections",
-      "Reconcile billed charges against schedules",
-    ],
-    requirements: [
-      "Medical billing experience",
-      "Familiarity with at least one practice management system",
-      "Attention to detail under volume",
-    ],
-  },
-  {
-    id: "team-leader",
-    title: "Team Leader",
-    team: "Operations",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "5+ years",
-    summary:
-      "Own daily throughput, service levels and team performance for an account or specialty pod.",
-    responsibilities: [
-      "Manage daily allocation and throughput",
-      "Monitor service levels and quality results",
-      "Coach team members on performance",
-      "Escalate risks before they become client issues",
-    ],
-    requirements: [
-      "Team leadership experience in healthcare operations",
-      "Working knowledge of coding or RCM delivery",
-      "Comfortable owning metrics and reporting",
-    ],
-  },
-  {
-    id: "operations-manager",
-    title: "Operations Manager",
-    team: "Operations",
-    location: "Global delivery center",
-    workMode: "Hybrid",
-    experience: "8+ years",
-    summary:
-      "Own the client relationship, reporting cadence and escalation path for one or more accounts.",
-    responsibilities: [
-      "Own account performance against agreed metrics",
-      "Run the client reporting cadence",
-      "Manage staffing, capacity and transition plans",
-      "Own escalations end to end",
-    ],
-    requirements: [
-      "Healthcare RCM operations management experience",
-      "Client-facing communication skills",
-      "Experience managing multi-team delivery",
-    ],
-  },
-  {
-    id: "trainer",
-    title: "Trainer",
-    team: "Training",
-    location: "Global delivery center",
-    workMode: "On-site",
-    experience: "4+ years",
-    summary:
-      "Build and deliver onboarding, specialty and refresher training driven by audit and denial findings.",
-    responsibilities: [
-      "Deliver onboarding and specialty training",
-      "Build content from audit and denial findings",
-      "Assess trainee readiness before account release",
-      "Measure post-training impact",
-    ],
-    requirements: [
-      "Coding certification and training experience",
-      "Ability to build content from performance data",
-      "Strong facilitation skills",
+      "Complete intensive practical training modules and daily chart coding assignments",
+      "Participate in mock audits and certification preparation drills",
+      "Work under senior mentors to understand enterprise healthcare workflows",
     ],
   },
 ];
 
-export const careerBenefits: ReadonlyArray<{ title: string; body: string }> = [
-  {
-    title: "Specialty depth, not chart churn",
-    body: "Coders are assigned by specialty and stay there long enough to get genuinely good at it.",
-  },
-  {
-    title: "Certification support",
-    body: "Support for certification and continuing education requirements relevant to your role.",
-  },
-  {
-    title: "Structured feedback",
-    body: "Quality feedback is individual, evidence-based and delivered regularly, not saved for appraisals.",
-  },
-  {
-    title: "Defined progression",
-    body: "Clear paths from coder to senior coder, QA, audit, training and operations roles.",
-  },
-];
-
-export const jobsById = new Map(jobOpenings.map((job) => [job.id, job]));
+export const jobOpenings = openPositions;
