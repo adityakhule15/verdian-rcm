@@ -105,10 +105,6 @@ export default function CareersPage() {
             description={
               <>
                 Attach your resume and state your target role. You can also send your credentials directly to{" "}
-                <a href={`mailto:${site.contact.careersEmail}`} className="font-bold text-teal-700 underline">
-                  {site.contact.careersEmail}
-                </a>{" "}
-                or{" "}
                 <a href={`mailto:${site.contact.email}`} className="font-bold text-teal-700 underline">
                   {site.contact.email}
                 </a>
