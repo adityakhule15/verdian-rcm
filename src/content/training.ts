@@ -17,7 +17,7 @@ export const trainingPrograms: TrainingProgram[] = [
     id: "sdp",
     title: "Skill Development Programs (SDP)",
     badge: "Flagship Program",
-    duration: "3 – 6 Months",
+    duration: "",
     overview:
       "Comprehensive, industry-designed medical coding curriculum transforming life science and healthcare graduates into job-ready coding professionals.",
     icon: "graduationCap",
@@ -40,7 +40,7 @@ export const trainingPrograms: TrainingProgram[] = [
     id: "short-duration",
     title: "Short-Duration Medical Coding Programs",
     badge: "Accelerated Learning",
-    duration: "4 – 8 Weeks",
+    duration: "",
     overview:
       "Intensive fast-track modules focusing on high-demand coding specialties, guidelines updates, and practical chart coding drills.",
     icon: "trendingUp",
@@ -62,7 +62,7 @@ export const trainingPrograms: TrainingProgram[] = [
     id: "professional",
     title: "Professional Training & Mentorship",
     badge: "Advanced Career Track",
-    duration: "Flexible Modular Schedule",
+    duration: "",
     overview:
       "Advanced professional training designed to elevate working coders and serious aspirants with complex inpatient coding, auditing, and leadership skills.",
     icon: "award" as IconName | "trophy",

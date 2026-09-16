@@ -1,6 +1,5 @@
 import { PageHero } from "@/components/ui/PageHero";
 import { CTABand } from "@/components/ui/CTABand";
-import { TechnologySection } from "@/components/sections/Shared";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
 
@@ -23,7 +22,6 @@ export default function TechnologyPage() {
         breadcrumbs={[{ label: "Technology" }]}
       />
 
-      <TechnologySection />
       <CTABand />
     </>
   );

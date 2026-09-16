@@ -180,33 +180,3 @@ export const whyLigaseEcosystem = {
     },
   ],
 };
-
-/** PDF Section 17 — Technology Section */
-export const technologySectionData = {
-  heading: "Technology-Enabled Healthcare Learning",
-  tagline: "Smarter Learning. Better Skills. Stronger Healthcare.",
-  content:
-    "We believe technology can transform the way healthcare professionals learn, work, and grow. Our platforms integrate modern digital interfaces, data-driven coding analytics, and digital chart simulations to deliver superior learning and operational results.",
-  visualPillars: [
-    {
-      title: "AI-Inspired Healthcare Tools",
-      description: "Modern computer-assisted coding (CAC) principles and intelligent rule engines for accuracy.",
-      icon: "sparkles" as IconName,
-    },
-    {
-      title: "Digital Coding Workspaces",
-      description: "Interactive browser-based chart abstraction portals mirroring actual enterprise EHRs.",
-      icon: "monitor" as IconName,
-    },
-    {
-      title: "Data Visualization & Metrics",
-      description: "Real-time accuracy scoring, error category tracking, and personalized learning dashboards.",
-      icon: "barChart" as IconName,
-    },
-    {
-      title: "Cloud & Network Collaboration",
-      description: "Secure, role-based cloud environments ensuring seamless learning and compliant data workflows.",
-      icon: "workflow" as IconName,
-    },
-  ],
-};

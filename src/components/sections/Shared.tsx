@@ -20,7 +20,6 @@ import { site } from "@/content/site";
 import {
   mission,
   successCategories,
-  technologySectionData,
   trustPoints,
   vision,
   whoWeAre,
@@ -148,7 +147,7 @@ export function MissionVisionSection() {
       />
 
       <div className="mt-12 grid gap-8 lg:grid-cols-2">
-        {/* Mission Card: Circular Diagram representation */}
+        {/* Mission Card */}
         <Reveal className="h-full">
           <div className="h-full rounded-3xl border border-navy-100 bg-white p-8 shadow-sm flex flex-col justify-between">
             <div>
@@ -161,23 +160,6 @@ export function MissionVisionSection() {
               <p className="mt-3 text-sm leading-relaxed text-navy-600">
                 "{mission.statement}"
               </p>
-
-              {/* Mission Nodes Flow: Quality -> Skills -> Accuracy -> Growth -> Success */}
-              <div className="mt-6 rounded-2xl bg-navy-50/70 p-5 border border-navy-100/60">
-                <p className="text-xs font-bold text-center text-navy-700 uppercase tracking-wider mb-4">
-                  LIGASE HEALTHCARE MISSION CYCLE
-                </p>
-                <div className="grid grid-cols-5 gap-2 text-center">
-                  {mission.nodes.map((node, i) => (
-                    <div key={node.label} className="flex flex-col items-center">
-                      <span className="size-8 rounded-full bg-teal-600 text-white text-xs font-bold flex items-center justify-center shadow-xs">
-                        0{i + 1}
-                      </span>
-                      <span className="mt-2 text-xs font-bold text-navy-900">{node.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-navy-100 flex items-center justify-between text-xs text-navy-500">
@@ -187,7 +169,7 @@ export function MissionVisionSection() {
           </div>
         </Reveal>
 
-        {/* Vision Card: Timeline Journey */}
+        {/* Vision Card */}
         <Reveal delay={100} className="h-full">
           <div className="h-full rounded-3xl border border-navy-100 bg-white p-8 shadow-sm flex flex-col justify-between">
             <div>
@@ -200,24 +182,6 @@ export function MissionVisionSection() {
               <p className="mt-3 text-sm leading-relaxed text-navy-600">
                 "{vision.statement}"
               </p>
-
-              {/* Vision Progression Path */}
-              <div className="mt-6 space-y-2">
-                {vision.steps.map((step, idx) => (
-                  <div
-                    key={step.stage}
-                    className="flex items-center gap-3 rounded-xl bg-navy-50/50 p-2.5 border border-navy-100/50"
-                  >
-                    <span className="size-6 shrink-0 rounded-md bg-navy-900 text-white text-[0.6875rem] font-bold flex items-center justify-center">
-                      {idx + 1}
-                    </span>
-                    <div className="flex-1 flex items-center justify-between">
-                      <span className="text-xs font-bold text-navy-900">{step.stage}</span>
-                      <span className="text-[0.75rem] text-navy-600 hidden sm:inline">{step.desc}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-navy-100 flex items-center justify-between text-xs text-navy-500">
@@ -422,31 +386,6 @@ export function TrainingSection() {
           </Reveal>
         ))}
       </div>
-
-      {/* Section 11 — How Our Training Works (Progressive Timeline) */}
-      <div className="mt-16 rounded-3xl bg-navy-950 p-8 sm:p-10 text-white shadow-lift">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-xs font-bold uppercase tracking-wider text-teal-300">How Our Training Works</p>
-          <h3 className="font-display text-2xl sm:text-3xl font-bold mt-2">Your 5-Step Learning Journey</h3>
-          <p className="text-sm text-navy-300 mt-2">A structured pathway from foundational theory to career launch.</p>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {learningJourneySteps.map((step) => (
-            <div key={step.step} className="relative rounded-2xl bg-white/5 border border-white/10 p-5 backdrop-blur-sm">
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-sm font-black text-teal-400">{step.step}</span>
-                <span className="size-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center">
-                  <Icon name={step.icon} className="size-4" />
-                </span>
-              </div>
-              <h4 className="font-display text-base font-bold text-white">{step.title}</h4>
-              <p className="text-xs font-semibold text-teal-300 mt-0.5">{step.subtitle}</p>
-              <p className="text-xs text-navy-200 mt-2.5 leading-relaxed">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </Section>
   );
 }
@@ -541,26 +480,6 @@ export function CertificationSection() {
           </Reveal>
         ))}
       </div>
-
-      {/* Section 14 — Certification Journey */}
-      <div className="mt-16 rounded-3xl border border-navy-100 bg-white p-8 shadow-sm">
-        <div className="text-center max-w-xl mx-auto mb-8">
-          <p className="text-xs font-bold uppercase tracking-wider text-teal-700">The Certification Journey</p>
-          <h3 className="font-display text-xl sm:text-2xl font-bold text-navy-950 mt-1">
-            Your Career. Your Skills. Your Future.
-          </h3>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          {certificationJourneySteps.map((step) => (
-            <div key={step.step} className="rounded-2xl bg-navy-50/70 p-4 border border-navy-100/70">
-              <span className="font-mono text-xs font-bold text-teal-700">{step.step}</span>
-              <h4 className="font-display text-xs font-bold text-navy-950 mt-1 mb-1.5">{step.title}</h4>
-              <p className="text-[0.75rem] text-navy-600 leading-normal">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </Section>
   );
 }
@@ -646,48 +565,7 @@ export function WhyLigaseEcosystemSection() {
   );
 }
 
-/** Section 17 — Technology Section */
-export function TechnologySection() {
-  return (
-    <Section labelledBy="tech-heading">
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        <Reveal className="space-y-6">
-          <SectionHeading
-            id="tech-heading"
-            eyebrow="Technology-Enabled Learning"
-            title={technologySectionData.heading}
-            description={technologySectionData.content}
-          />
-          <div className="rounded-2xl bg-teal-50/80 border border-teal-100 p-5">
-            <p className="font-display text-sm font-bold text-teal-900">
-              Tagline: {technologySectionData.tagline}
-            </p>
-            <p className="text-xs text-teal-800 mt-1">
-              Leveraging advanced simulated chart environments and intelligent workflow tooling for real-world excellence.
-            </p>
-          </div>
-        </Reveal>
 
-        <Reveal delay={80}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {technologySectionData.visualPillars.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-navy-100 bg-white p-5 shadow-xs hover:border-teal-300 transition"
-              >
-                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-navy-950 text-teal-300 mb-3">
-                  <Icon name={item.icon} className="size-5" />
-                </span>
-                <h4 className="font-display text-sm font-bold text-navy-950 mb-1">{item.title}</h4>
-                <p className="text-xs text-navy-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </Section>
-  );
-}
 
 /** Section 18 — Careers Section Preview */
 export function CareersSection() {

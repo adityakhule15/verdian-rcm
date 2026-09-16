@@ -9,7 +9,6 @@ import {
   MedicalCodingSpotlight,
   MissionVisionSection,
   StudentSuccessSection,
-  TechnologySection,
   TrainingSection,
   TrustStrip,
   WhoWeAreSection,
@@ -76,8 +75,7 @@ export default function HomePage() {
       {/* 12. Student / Professional Success Section */}
       <StudentSuccessSection />
 
-      {/* 13. Technology-Enabled Healthcare Learning */}
-      <TechnologySection />
+
 
       {/* 14. Careers Preview */}
       <CareersSection />
