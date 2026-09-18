@@ -57,9 +57,8 @@ export function organizationSchema(): Json {
     address: site.offices.map((office) => ({
       "@type": "PostalAddress",
       name: office.label,
-      streetAddress: office.lines[0],
-      addressLocality: office.lines[1],
-      addressCountry: office.lines[office.lines.length - 1],
+      addressLocality: office.lines[0],
+      addressCountry: "IN",
     })),
     contactPoint: [
       {

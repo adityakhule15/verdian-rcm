@@ -61,7 +61,7 @@ export function Footer() {
             </div>
 
             {/* Social Links */}
-            {/* <div className="pt-2">
+            <div className="pt-2">
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal-300 mb-3">Connect With Us</p>
               <div className="flex items-center gap-3">
                 <a
@@ -110,7 +110,7 @@ export function Footer() {
                   <SocialIcon type="youtube" />
                 </a>
               </div>
-            </div> */}
+            </div>
           </div>
 
           {/* Quick Links Column */}
