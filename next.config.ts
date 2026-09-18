@@ -21,9 +21,6 @@ const nextConfig: NextConfig = {
       { source: "/blog/:slug", destination: "/training", permanent: true },
     ];
   },
-  async rewrites() {
-    return [{ source: "/favicon.ico", destination: "/icon" }];
-  },
   async headers() {
     return [
       {

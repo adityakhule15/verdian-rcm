@@ -49,7 +49,7 @@ export function organizationSchema(): Json {
     url: site.url,
     description: site.description,
     slogan: site.tagline,
-    logo: absoluteUrl("/apple-icon"),
+    logo: absoluteUrl("/apple-icon.png"),
     image: absoluteUrl("/opengraph-image"),
     email: site.contact.email,
     telephone: site.contact.phone,

@@ -42,7 +42,7 @@ export const openPositions: JobOpening[] = [
     id: "medical-coding-specialist",
     title: "Medical Coding Specialist (Inpatient / Outpatient)",
     department: "Healthcare Services",
-    location: "Hybrid / On-site (Hyderabad / Pune)",
+    location: "Hybrid / On-site (Bengaluru)",
     type: "Full-Time",
     experience: "1 – 4 Years",
     description:

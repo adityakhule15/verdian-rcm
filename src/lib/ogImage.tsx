@@ -1,17 +1,25 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { LogoMarkSvg } from "@/lib/logoMarkArt";
 import { site } from "@/content/site";
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogSquareSize = { width: 1200, height: 1200 };
 export const ogContentType = "image/png";
 
-const gradient = "linear-gradient(135deg, #08172a 0%, #102845 50%, #0a6760 100%)";
+const gradient = "linear-gradient(135deg, #0a1a2e 0%, #152c48 45%, #226d9c 78%, #ec8229 100%)";
+
+async function loadLogoMarkSrc() {
+  const data = await readFile(join(process.cwd(), "public/logo-mark.png"));
+  return `data:image/png;base64,${data.toString("base64")}`;
+}
 
 /**
  * Square card for WhatsApp / iMessage thumbnails.
  */
-export function renderOgSquareImage() {
+export async function renderOgSquareImage() {
+  const markSrc = await loadLogoMarkSrc();
+
   return new ImageResponse(
     (
       <div
@@ -28,7 +36,20 @@ export function renderOgSquareImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <LogoMarkSvg size={280} variant="light" />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 280,
+            height: 280,
+            borderRadius: 48,
+            background: "#ffffff",
+            padding: 36,
+          }}
+        >
+          <img src={markSrc} width={208} height={208} alt="" />
+        </div>
         <div
           style={{
             display: "flex",
@@ -40,7 +61,7 @@ export function renderOgSquareImage() {
           }}
         >
           <div style={{ fontSize: 56, fontWeight: 800, letterSpacing: "-0.02em" }}>{site.name}</div>
-          <div style={{ fontSize: 26, color: "#5ed4c4", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+          <div style={{ fontSize: 26, color: "#7bc0e5", letterSpacing: "0.12em", textTransform: "uppercase" }}>
             Services · Training · Certifications
           </div>
         </div>
@@ -53,10 +74,12 @@ export function renderOgSquareImage() {
 /**
  * Wide social card for Facebook, LinkedIn and Twitter large-image previews.
  */
-export function renderOgImage({
+export async function renderOgImage({
   title = site.shareTitle,
   subtitle = site.shareDescription,
 }: { title?: string; subtitle?: string } = {}) {
+  const markSrc = await loadLogoMarkSrc();
+
   return new ImageResponse(
     (
       <div
@@ -75,7 +98,20 @@ export function renderOgImage({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <LogoMarkSvg size={110} variant="light" />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 110,
+              height: 110,
+              borderRadius: 24,
+              background: "#ffffff",
+              padding: 14,
+            }}
+          >
+            <img src={markSrc} width={82} height={82} alt="" />
+          </div>
           <div style={{ fontSize: 46, fontWeight: 800, letterSpacing: "-0.02em" }}>{site.name}</div>
         </div>
 
@@ -99,7 +135,7 @@ export function renderOgImage({
           >
             {title}
           </div>
-          <div style={{ fontSize: 24, color: "#99e7da", lineHeight: 1.35 }}>{subtitle}</div>
+          <div style={{ fontSize: 24, color: "#aed9f1", lineHeight: 1.35 }}>{subtitle}</div>
         </div>
 
         <div style={{ display: "flex", gap: 32, fontSize: 20, color: "#c2d8ec" }}>

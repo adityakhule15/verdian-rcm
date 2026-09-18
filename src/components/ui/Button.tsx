@@ -13,7 +13,7 @@ const variants: Record<Variant, string> = {
   primary: "bg-navy-900 text-white shadow-soft hover:bg-navy-800 hover:shadow-lift",
   secondary: "border border-navy-200 bg-white text-navy-900 hover:border-navy-300 hover:bg-navy-50",
   ghost: "text-navy-800 hover:bg-navy-50",
-  onDark: "bg-teal-400 text-navy-950 hover:bg-teal-300",
+  onDark: "bg-orange-400 text-navy-950 hover:bg-amber-400",
 };
 
 const sizes: Record<Size, string> = {
@@ -59,8 +59,14 @@ export function ButtonLink({
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if (isExternal) {
+    const opensNewTab = href.startsWith("http");
     return (
-      <a href={href} className={classes} rel="noopener noreferrer">
+      <a
+        href={href}
+        className={classes}
+        rel="noopener noreferrer"
+        target={opensNewTab ? "_blank" : undefined}
+      >
         {children}
         {withArrow ? <ArrowRight className="size-4" aria-hidden /> : null}
       </a>

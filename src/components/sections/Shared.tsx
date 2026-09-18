@@ -582,7 +582,10 @@ export function CareersSection() {
             <ButtonLink href="/careers" withArrow>
               View Opportunities
             </ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
+            <ButtonLink
+              href={`mailto:${site.contact.careersEmail}?subject=${encodeURIComponent("Resume — Application for Ligase Healthcare")}`}
+              variant="secondary"
+            >
               Send Your Resume
             </ButtonLink>
           </div>

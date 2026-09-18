@@ -104,7 +104,7 @@ export function NetworkAnimation() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(94, 212, 196, ${p.alpha * 0.35})`;
+        ctx.fillStyle = `rgba(67, 154, 206, ${p.alpha * 0.35})`;
         ctx.fill();
       });
 
@@ -128,7 +128,7 @@ export function NetworkAnimation() {
         ctx.beginPath();
         ctx.moveTo(start.x, start.y);
         ctx.lineTo(end.x, end.y);
-        ctx.strokeStyle = "rgba(45, 189, 171, 0.18)";
+        ctx.strokeStyle = "rgba(67, 154, 206, 0.18)";
         ctx.lineWidth = 1.5;
         ctx.stroke();
       });
@@ -150,9 +150,9 @@ export function NetworkAnimation() {
 
         // Particle glow
         const glow = ctx.createRadialGradient(px, py, 0, px, py, p.size * 3);
-        glow.addColorStop(0, "rgba(94, 212, 196, 0.9)");
-        glow.addColorStop(0.5, "rgba(45, 189, 171, 0.4)");
-        glow.addColorStop(1, "rgba(45, 189, 171, 0)");
+        glow.addColorStop(0, "rgba(244, 194, 31, 0.9)");
+        glow.addColorStop(0.5, "rgba(67, 154, 206, 0.4)");
+        glow.addColorStop(1, "rgba(67, 154, 206, 0)");
 
         ctx.beginPath();
         ctx.arc(px, py, p.size * 3, 0, Math.PI * 2);
@@ -171,22 +171,22 @@ export function NetworkAnimation() {
         const pulse = Math.sin(tick * 0.04 + i) * 3;
         ctx.beginPath();
         ctx.arc(node.x, node.y, 24 + pulse, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(45, 189, 171, 0.08)";
+        ctx.fillStyle = "rgba(67, 154, 206, 0.08)";
         ctx.fill();
 
         // Node Main Body
         ctx.beginPath();
         ctx.arc(node.x, node.y, 18, 0, Math.PI * 2);
-        ctx.fillStyle = "#0c233f";
+        ctx.fillStyle = "#0a1a2e";
         ctx.fill();
-        ctx.strokeStyle = "#2dbdab";
+        ctx.strokeStyle = "#439ace";
         ctx.lineWidth = 2;
         ctx.stroke();
 
         // Center bright dot
         ctx.beginPath();
         ctx.arc(node.x, node.y, 5, 0, Math.PI * 2);
-        ctx.fillStyle = "#5ed4c4";
+        ctx.fillStyle = "#7bc0e5";
         ctx.fill();
 
         // Node Text Badge
@@ -197,7 +197,7 @@ export function NetworkAnimation() {
         ctx.fillText(node.label, node.x, node.y + 34);
 
         ctx.font = "500 10px Inter, sans-serif";
-        ctx.fillStyle = "#99e7da";
+        ctx.fillStyle = "#f4c21f";
         ctx.fillText(node.sublabel, node.x, node.y + 47);
         ctx.restore();
       });

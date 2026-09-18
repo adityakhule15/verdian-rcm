@@ -31,29 +31,24 @@ export const site = {
 
   contact: {
     email: "info@ligasehealthcare.com",
-    careersEmail: "careers@ligasehealthcare.com",
-    phone: "+91 98765 43210",
-    phoneHref: "tel:+919876543210",
-    phoneAlt: "+1 (800) 544-2731",
-    phoneAltHref: "tel:+18005442731",
+    careersEmail: "info@ligasehealthcare.com",
+    phone: "+91 75078 50583",
+    phoneHref: "tel:+917507850583",
     hours: "Monday to Saturday, 9:00 AM – 6:00 PM IST",
-    address: "Healthcare Innovation Hub, Tech City, Hyderabad / Pune, India",
+    address: "Bengaluru",
     social: {
       linkedin: "https://www.linkedin.com/company/ligase-healthcare",
       instagram: "https://www.instagram.com/ligasehealthcare",
       facebook: "https://www.facebook.com/ligasehealthcare",
       youtube: "https://www.youtube.com/@ligasehealthcare",
+      whatsapp: `https://wa.me/917507850583?text=${encodeURIComponent("Hi Ligase Healthcare team, I would like to know more about your services.")}`,
     },
   },
 
   offices: [
     {
-      label: "Corporate Office & Training Center",
-      lines: ["Healthcare Knowledge Park, Sector 4", "Hyderabad / Pune, India", "Contact: info@ligasehealthcare.com"],
-    },
-    {
-      label: "Global Healthcare Services Delivery",
-      lines: ["Ligase Global Solutions Center", "International Tech Zone", "India & Global Operations"],
+      label: "Office",
+      lines: ["Bengaluru"],
     },
   ],
 

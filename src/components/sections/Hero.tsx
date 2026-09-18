@@ -12,7 +12,7 @@ export function Hero() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-48 -left-32 size-[36rem] rounded-full bg-blue-600/15 blur-3xl"
+        className="pointer-events-none absolute -bottom-48 -left-32 size-[36rem] rounded-full bg-orange-400/15 blur-3xl"
         aria-hidden
       />
 
@@ -25,7 +25,7 @@ export function Hero() {
 
           <h1 className="text-4xl font-extrabold tracking-tight leading-[1.08] text-white sm:text-5xl lg:text-6xl">
             Empowering Healthcare. <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-200 to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-amber-400 to-orange-400">
               Building Skills.
             </span>{" "}
             Creating Opportunities.
@@ -40,7 +40,7 @@ export function Hero() {
               href="/healthcare-solutions"
               variant="onDark"
               size="lg"
-              className="font-bold shadow-lg shadow-teal-500/15 hover:shadow-teal-500/30"
+              className="font-bold shadow-lg shadow-orange-400/20 hover:shadow-orange-400/35"
               withArrow
             >
               Explore Our Services

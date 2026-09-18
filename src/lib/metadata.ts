@@ -4,8 +4,6 @@ import { site } from "@/content/site";
 const ogSquareUrl = `${site.url}/og-square`;
 const ogImageUrl = `${site.url}/opengraph-image`;
 const twitterImageUrl = `${site.url}/twitter-image`;
-const iconUrl = `${site.url}/icon`;
-const appleIconUrl = `${site.url}/apple-icon`;
 
 const ogSquareImage = {
   url: ogSquareUrl,
@@ -40,11 +38,11 @@ export const socialMetadata = {
   },
   icons: {
     icon: [
-      { url: iconUrl, sizes: "32x32", type: "image/png" },
-      { url: appleIconUrl, sizes: "180x180", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "256x256" },
     ],
-    apple: [{ url: appleIconUrl, sizes: "180x180", type: "image/png" }],
-    shortcut: iconUrl,
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
   },
 };
 
